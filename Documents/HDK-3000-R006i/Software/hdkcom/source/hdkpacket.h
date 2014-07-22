@@ -1,0 +1,70 @@
+/******************************************************************************
+ * DVSI CONFIDENTIAL PROPRIETARY
+ ******************************************************************************
+ * AMBE-3000 HDK
+ * (c) Copyright, Digital Voice Systems Inc., 2008
+ * All Rights Reserved
+ *
+ * DVSI claims certain rights, including patent rights under
+ * U.S. Patents #6,199,037 B1, #6,161,089, #5,870,045, #5,826,222,
+ * #5,754,974, #5,715,365, #5,701,390, #5,649,050, #5,630,011,
+ * #5,247,579, and #5,226,084, and under other U.S. and foreign
+ * patents and patents pending, in the AMBE^(TM) speech coding
+ * technology embodied in this software.  Any use of this software
+ * or technology requires a separate written license from DVSI.
+ * 	
+ * AMBE is a registered trademark of Digital Voice Systems, Inc.
+ * AMBE+ and AMBE+2 are trademarks of Digital Voice Systems, Inc.
+ ******************************************************************************/
+
+#define PKT_HDKTYPE	0x04	//this is the type byte for HDK packets
+
+#define PKT_HDKMODE	0x00
+#define PKT_HDKREADY	0x01
+#define PKT_HDKVERSION	0x02
+
+#define IDLE_MODE	0
+#define	PACKET_MODE	1
+#define	CODEC_MODE	2
+#define LOOPBACK_MODE	3
+#define DUALHDK_MODE	4
+#define DSPUART_MODE	5
+
+#define PACKET_UART	0
+#define PACKET_PPT	1
+#define PACKET_MCBSP	2
+
+#define DONTCARE	0
+
+#define PASSTHRU_OFF	0
+#define PASSTHRU_ON	1
+
+#define SKEW_OFF	0
+#define SKEW_ON		1
+
+#define ECHO_OFF	0
+#define ECHO_ON		1
+
+#define HDKMODE(mode,packetif,passthru,skew,echo) ((mode)|((packetif)<<3)|((passthru)<<5)|((skew)<<6)|((echo)<<7))
+
+#define HDKMODE_IDLE			HDKMODE(IDLE_MODE,       0,0,0,0)
+#define HDKMODE_FIFOOVERFLOW		HDKMODE(IDLE_MODE,       0,0,0,1)
+#define HDKMODE_PACKET_PPT		HDKMODE(PACKET_MODE,   PACKET_PPT, PASSTHRU_OFF,SKEW_OFF,ECHO_OFF)
+#define HDKMODE_PACKET_UART		HDKMODE(PACKET_MODE,   PACKET_UART,PASSTHRU_OFF,SKEW_OFF,ECHO_OFF)
+#define HDKMODE_CODEC_PPT		HDKMODE(CODEC_MODE,    PACKET_PPT, PASSTHRU_OFF,SKEW_OFF,ECHO_OFF)
+#define HDKMODE_CODEC_UART		HDKMODE(CODEC_MODE,    PACKET_UART,PASSTHRU_OFF,SKEW_OFF,ECHO_OFF)
+#define HDKMODE_CODEC_PASSTHRU_PPT	HDKMODE(CODEC_MODE,    PACKET_PPT, PASSTHRU_ON ,SKEW_OFF,ECHO_OFF)
+#define HDKMODE_CODEC_PASSTHRU_UART	HDKMODE(CODEC_MODE,    PACKET_UART,PASSTHRU_ON ,SKEW_OFF,ECHO_OFF)
+#define HDKMODE_LOOPBACK_VOCODER_PPT	HDKMODE(LOOPBACK_MODE, PACKET_PPT, PASSTHRU_OFF,SKEW_OFF,ECHO_OFF)
+#define HDKMODE_LOOPBACK_VOCODER_UART	HDKMODE(LOOPBACK_MODE, PACKET_UART,PASSTHRU_OFF,SKEW_OFF,ECHO_OFF)
+#define HDKMODE_LOOPBACK_PASSTHRU_PPT	HDKMODE(LOOPBACK_MODE, PACKET_PPT, PASSTHRU_ON ,SKEW_OFF,ECHO_OFF)
+#define HDKMODE_LOOPBACK_PASSTHRU_UART	HDKMODE(LOOPBACK_MODE, PACKET_UART,PASSTHRU_ON ,SKEW_OFF,ECHO_OFF)
+#define HDKMODE_DUALHDK			HDKMODE(DUALHDK_MODE,  PACKET_PPT, PASSTHRU_OFF,SKEW_OFF,ECHO_OFF)
+#define HDKMODE_DUALHDK_PASSTHRU	HDKMODE(DUALHDK_MODE,  PACKET_PPT, PASSTHRU_ON ,SKEW_OFF,ECHO_OFF)
+#define HDKMODE_DUALHDKSKEW		HDKMODE(DUALHDK_MODE,  PACKET_PPT, PASSTHRU_OFF,SKEW_ON, ECHO_OFF)
+#define HDKMODE_DUALHDKSKEW_PASSTHRU	HDKMODE(DUALHDK_MODE,  PACKET_PPT, PASSTHRU_ON ,SKEW_ON, ECHO_OFF)
+#define HDKMODE_DUALHDKECHO		HDKMODE(DUALHDK_MODE,  PACKET_PPT, PASSTHRU_OFF,SKEW_ON, ECHO_ON )
+#define HDKMODE_DUALHDKECHO_PASSTHRU	HDKMODE(DUALHDK_MODE,  PACKET_PPT, PASSTHRU_ON ,SKEW_ON, ECHO_ON )
+#define HDKMODE_DSPUART			HDKMODE(DSPUART_MODE,  DONTCARE,   DONTCARE,    DONTCARE,DONTCARE )
+
+#define HDKMODE_UNDEFINED HDKMODE_IDLE

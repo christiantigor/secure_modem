@@ -1,0 +1,340 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+  <title>DVSI HDK Page</title>
+
+<style type="text/css">
+<!--
+.bodytext {  font-family: Arial, Helvetica, sans-serif; text-align: justify; }
+.tbl_bodytxt {  font-family: Arial, Helvetica, sans-serif; text-align: center; }
+.linehead {  font-family: Arial, Helvetica, sans-serif; font-size: 14px; font-weight: bold; }
+.subhead {  font-family: Arial, Helvetica, sans-serif; font-size: 12pt; font-style: normal; font-weight: bolder; letter-spacing: 0.75em; color: #996699}
+.footer {  font-family: Arial, Helvetica, sans-serif; font-size: 10px; text-align: center}
+.rtmenu {  font-family: Arial, Helvetica, sans-serif; font-size: 10px; font-weight: bolder; color: #009784;}
+.smalltxt {  font-family: Arial, Helvetica, sans-serif; font-size: 10px}
+.bodytxtsm {  font-family: Arial, Helvetica, sans-serif; font-size: 12px; font-weight: normal}
+.head1 {  font-family: Arial, Helvetica, sans-serif; font-size: 16pt; font-weight: bold; text-align: center}
+.head2 {  font-family: Arial, Helvetica, sans-serif; font-size: 15px; font-weight: bold}
+
+.head2 {  font-family: Arial, Helvetica, sans-serif; font-size: 15px; font-style: normal; font-weight: ; color: #000000; line-height: normal}
+.offer {  font-family: Arial, Helvetica, sans-serif; font-size: 0.18in; font-style: normal; font-weight: bolder; color: #000000; line-height: normal}
+.hptext {  font-family: Arial, Helvetica, sans-serif; font-size: 14px; font-style: normal; font-weight: normal; color: #009874; line-height: 14px; clip:   rect(   )}
+.attn {  font-family: Arial, Helvetica, sans-serif; font-size: 14px; font-style: normal; font-weight: normal; color: #CC9933; line-height: 14px; clip:   rect(   )}
+.boldtext {  font-family: Arial, Helvetica, sans-serif; font-size: 16px; font-style: normal; font-weight: bold; color: #000000; line-height: 0.18in; text-align: left; letter-spacing: normal}
+.bottom {  font-family: Arial, Helvetica, sans-serif; font-size: 0.11in; font-weight: normal}
+.address {  font-family: Arial, Helvetica, sans-serif; font-size: 8pt; font-weight: bold; color: #009874; letter-spacing: 0.04pc; line-height: 8pt}
+A { text-decoration:none }
+A:hover { color:#ff3300 }
+.address {  font-family: Arial, Helvetica, sans-serif; font-size: 8pt; font-weight: bold; color: #000000; letter-spacing: 0.04pc; line-height: 8pt}
+
+body{
+	font-family: Arial,sans-serif, Helvetica;
+	font-size: 10px;
+	color: #333333;
+	line-height: 1.166;
+	margin: 0px;
+	padding: 0px;
+	background: #009784 fixed;
+}
+
+/******* hyperlink and anchor tag styles *******/
+
+a:link, a:visited{
+	color: ##3366FF;
+	text-decoration: none;
+}
+
+a:hover{
+	text-decoration: underline;
+}
+
+/************** header tag styles **************/
+
+h1{
+ font: bold 120% Arial,sans-serif;
+ color: #334d55;
+ margin: 0px;
+ padding: 0px;
+}
+
+h2{
+ font: bold 114% Arial,sans-serif;
+ color: #6699;
+ margin: 0px 0px 2px 0px;
+ padding: 0px;
+}
+
+h3{
+ font: bold 100% Arial,sans-serif;
+ color: #334d55;
+ margin: 0px;
+ padding: 0px;
+}
+
+h4{
+ font: 100% Arial,sans-serif;
+ color: #333333;
+ margin: 0px;
+ padding: 0px;
+}
+
+h5{
+ font: 100% Arial,sans-serif;
+ color: #334d55;
+ margin: 0px;
+ padding: 0px;
+}
+
+
+/*************** list tag styles ***************/
+
+ul{
+ list-style-type: square;
+}
+
+ul ul{
+ list-style-type: disc;
+}
+
+ul ul ul{
+ list-style-type: none;
+}
+
+.c_page{
+	position:absolute;
+	z-index:1;
+	top: 45px;
+	width: 780px;
+	height: 560px;
+	background-color: #ffffff;
+	border-left: 1px solid #cccccc;
+	border-top: 1px solid #cccccc;
+	border-right: 1px solid #cccccc;
+	border-bottom: 1px solid #cccccc;
+}
+
+
+#c_page_logo{
+	position: relative;
+	z-index:8;
+	padding: 0px;
+	margin:15px 10px 5px 20px;
+        top: 0px;
+        left: 0px;
+        width: 286px;
+    }
+
+
+#c_page_title{
+	position: absolute;
+	z-index:5;
+	top: 80px;
+	left: 80px;
+	padding: 0px;
+}
+
+#c_page_ear{
+	position: absolute;
+	z-index:4;
+	top: 40px;
+	left: 0px;
+	padding: 0px;
+}
+#c_page_crcl{
+	position: absolute;
+	z-index:7;
+	top: 30px;
+	left: 410px;
+	padding: 0px;
+}
+
+#c_page_ologo{
+	position: absolute;
+	z-index:7;
+	top: 260px;
+	left: 310px;
+	padding: 0px;
+}
+
+
+#sub_head{
+	position: relative;
+	left: 136px;
+	top: 94px;
+	width: 267px;
+	z-index:6;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 15px;
+	color: #000000;
+	font-weight: bold;
+	line-height: normalfont: bold 100% Arial,sans-serif;
+}
+
+#headings{
+	position: absolute;
+	left: 455px;
+	top: 98px;
+  	color: #000000;
+	font-size: 16px;
+	z-index:8;
+	margin:0px 0px 0px 50px;
+}
+
+#headings h1{
+  	font-size: 14px;
+  	color: #009874;
+	font-weight: bold;
+}
+
+#headings h2{
+  	font-size: 13px;
+  	color: #000000;
+	font-weight: bold;
+        height: 176px;
+    }
+
+#headings h3{
+  	font-size: 12px;
+	width:240 ;
+  	color: #000000;
+	font-weight: normal;
+}
+#w_new {
+	position: absolute;
+ 	left: 0px;
+	top: 400px;
+	width:400px;
+	z-index:20;
+	margin:0px 0px 0px 10px;
+        height: 158px;
+    }
+
+#w_new img{
+	position: relative;
+	top: 0px;
+	z-index:18;
+	left: 2px;
+	padding: 0px 10px 10px 0px;
+	margin: 0px;
+}
+
+#w_new h1{
+  	font-size: 16px;
+	text-decoration: underline;
+	color: #CC9933;
+	font-weight: bold;
+}
+
+#w_new h2{
+  	font-size: 13px;
+	color: #0000ff;
+	font-weight: bold;
+        width: 400px;
+        height: 20px;
+    }
+
+#w_new h3{
+  	font-size: 12px;
+	color: #009874;
+	font-weight: bold;
+}
+#highlight{
+	position: absolute;
+	left: 17px;
+	top: 487px;
+	width: 440px;
+	z-index:5;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	color: #009874;
+	font-style: normal;
+}
+-->
+</style></head>
+
+
+<body>
+  <noscript>Your browser does not support script</noscript>
+
+
+ <table cellspacing="0" cellpadding="0" width="780" align="center" border="0" top="20px">
+    <tbody>
+      <tr>
+        <td>
+          <div class="c_page">
+            <div id="c_page_logo">
+              <img height="53" src="./HDK_web_photos/DVSI_Logo.gif" width="200" align="top">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            </div>
+
+            <div id="sub_head">
+              Digital Voice Systems, Inc.<br>
+              is the world leader in low-bit-rate<br>
+              speech compression technology.
+            </div>
+
+            <div id="c_page_title">
+              <img height="185" src="./HDK_web_photos/welcome.gif" width="35">
+            </div>
+
+            <div id="c_page_ear">
+              <img height="375" src="./HDK_web_photos/goldear.jpg" width="507">
+            </div>
+
+            <div id="c_page_crcl">
+              <img height="471" src="./HDK_web_photos/circleart.gif" width="325">
+            </div>
+
+            <div id="headings">
+              <h1><b>DVSI AMBE-3000&trade; Vocoder Chip<br> 
+              Hardware Development Kit...<br><br>
+              <i><u>Helpful Web Links</u></font></i></b></h1><br><br>
+
+              <h2>
+              <a href="https://myportal.ti.com/portal/dt?lt=myti&provider=TIPassLoginSingleContainer&goto=http%3A//focus.ti.com/general/docs/interimdownload.jsp%3Fdest_url%3Dhttp%253A//focus.ti.com/general/docs/lit/getliterature.tsp%253FbaseLiteratureNumber%253Dswrc094%2526fileType%253Dzip"> &raquo; My TI Account Login</a><br><br>
+              <a href="http://focus.ti.com/docs/toolsw/folders/print/tusbwinvcp.html"> &raquo; TI's USD Driver Download</a><br><br>
+              <a href="http://focus.ti.com/docs/toolsw/folders/print/msp-cce430.html"> &raquo; TI's Code Composer Essentials </a><br><br>
+              <a href="http://focus.ti.com/docs/toolsw/folders/print/msp-fet430uif.html"> &raquo; 	MSP430 USB Debugging Interface<br></a><br>
+          
+                <br>
+
+            </div>
+
+            <div id="w_new">
+              <h1>DVSI's HDK Web Page Links</h1>
+              <br>
+             <a href="./HDK_web_photos/a3k_hdk.jpg"> <img src="./HDK_web_photos/a3k_hdk_low_res.jpg" height="100" border="0" width="108" align="left" hspace="0"></a>
+<h2><br>  <a href="http://www.dvsinc.com/products/a3k_hdk.htm">AMBE-3000&trade;Vocoder-HDK Development Kit!</a></h2>
+ <h2><br>  <a href="http://www.dvsinc.com/manuals/a3k_hdk_manual.pdf">HDK Users Manual</a></h2>
+ <h2><br>  <a href="http://www.dvsinc.com/manuals/AMBE-3000_manual.pdf">AMBE-3000&trade; Vocoder Chip Users Manual</a></h2>&nbsp;
+ <h2>      <a href="http://www.dvsinc.com/images/a3k_hdk_block.jpg">AMBE-3000&trade;Vocoder-HDK Block Diagram</a></h2>&nbsp;<br>            </div>
+
+            <div id="highlight">
+              <font class="hptext"><i> </i></font> <a href="#">!</a><br>
+              &nbsp;&nbsp;&nbsp;<a href=""><b></b></a><a href="#"><b> </b></a>
+            </div>
+          </div>
+
+
+<table style="position: relative; left:600px; top:535px; width:170px; height:40px; z-index:6;
+	font-family: Arial, Helvetica, sans-serif; font-size: 12px;	color: #009874;
+	font-style: normal" border='0' cellspacing='0' cellpadding='0' class='address'>
+            <tr valign='top' align='center'>
+            <td class='address' align='right' width='50%'>Digital Voice Systems, Inc.</td></tr>
+		    <tr><td class='address' align='right'>234 Littleton Road</td></tr>
+		     <tr><td class='address' align='right'>Westford, MA 01886 USA </td></tr>
+            		<tr><td class='address' align='right' width='50%'>Tel 978 392 0002 </td></tr>
+            		<tr><td class='address' align='right'>Fax 978 392 8866</td></tr>
+            		<tr><td class='address' align='right'><a href='mailto:&#105;&#110;&#102;&#111;&#64;&#100;&#118;&#115;&#105;&#110;&#99;&#46;&#99;&#111;&#109; ?subject=Information Request'> &#105;&#110;&#102;&#111;&#64;&#100;&#118;&#115;&#105;&#110;&#99;&#46;&#99;&#111;&#109;</a></td></font></tr>
+            		</table>
+         <table style="position: relative; left:2px; top:555px; width:770px; height:20px; z-index:6;
+	font-family: Arial, Helvetica, sans-serif; font-size: 12px;	color: #009874;
+	font-style: normal" border='0' cellspacing='0' cellpadding='0' class='address'>
+            <tr valign='top' align='center'><td class='address' align='center' width='100%'><font color='#FFFFFF' face='Arial'>Copyright&nbsp; &copy; &nbsp;2008&nbsp; Digital Voice Systems, Inc.&nbsp; All Rights Reserved.&nbsp; &nbsp;
+            		</font></td> </tr></table>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</body>
+</html>
