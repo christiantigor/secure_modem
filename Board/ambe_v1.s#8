@@ -6872,9 +6872,9 @@ Standard schematic elements and footprints for 5mm, 3mm, 1206, and 0603 sized LE
 <label x="304.8" y="218.44" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="IO_PORT" gate="A" pin="8"/>
-<wire x1="387.35" y1="278.13" x2="384.81" y2="278.13" width="0.1524" layer="91"/>
-<label x="378.968" y="278.13" size="1.778" layer="95"/>
+<pinref part="IO_PORT" gate="A" pin="9"/>
+<wire x1="387.35" y1="275.59" x2="384.81" y2="275.59" width="0.1524" layer="91"/>
+<label x="378.968" y="275.59" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="VREF_1V" class="0">
@@ -7092,9 +7092,9 @@ Standard schematic elements and footprints for 5mm, 3mm, 1206, and 0603 sized LE
 <label x="146.05" y="199.39" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="IO_PORT" gate="A" pin="9"/>
-<wire x1="387.35" y1="275.59" x2="384.81" y2="275.59" width="0.1524" layer="91"/>
-<label x="377.952" y="275.59" size="1.778" layer="95"/>
+<pinref part="IO_PORT" gate="A" pin="7"/>
+<wire x1="387.35" y1="280.67" x2="384.81" y2="280.67" width="0.1524" layer="91"/>
+<label x="378.714" y="280.67" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="ADCRESEXT" class="0">
@@ -7594,9 +7594,9 @@ Standard schematic elements and footprints for 5mm, 3mm, 1206, and 0603 sized LE
 <label x="246.38" y="327.66" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="IO_PORT" gate="A" pin="7"/>
-<wire x1="387.35" y1="280.67" x2="384.81" y2="280.67" width="0.1524" layer="91"/>
-<label x="378.968" y="280.67" size="1.778" layer="95"/>
+<pinref part="IO_PORT" gate="A" pin="8"/>
+<wire x1="387.35" y1="278.13" x2="384.81" y2="278.13" width="0.1524" layer="91"/>
+<label x="378.714" y="278.13" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="STAT/CONFIG0" class="0">

@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.01" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
+<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="no" active="no"/>
 <layer number="16" name="Bottom" color="1" fill="1" visible="no" active="no"/>
@@ -6693,6 +6693,11 @@ Spark Fun Electronics SKU : COM-08034</description>
 <wire x1="387.35" y1="275.59" x2="384.81" y2="275.59" width="0.1524" layer="91"/>
 <label x="378.968" y="275.59" size="1.778" layer="95"/>
 </segment>
+<segment>
+<pinref part="R2" gate="G$1" pin="2"/>
+<wire x1="137.16" y1="236.22" x2="135.89" y2="236.22" width="0.1524" layer="91"/>
+<label x="135.89" y="233.68" size="1.778" layer="95"/>
+</segment>
 </net>
 <net name="VREF_1V" class="0">
 <segment>
@@ -6866,11 +6871,6 @@ Spark Fun Electronics SKU : COM-08034</description>
 <label x="246.38" y="317.5" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="R2" gate="G$1" pin="2"/>
-<wire x1="137.16" y1="236.22" x2="135.89" y2="236.22" width="0.1524" layer="91"/>
-<label x="135.89" y="233.68" size="1.778" layer="95"/>
-</segment>
-<segment>
 <pinref part="SW1" gate="A" pin="8"/>
 <pinref part="SW1" gate="A" pin="7"/>
 <wire x1="154.94" y1="318.77" x2="154.94" y2="316.23" width="0.1524" layer="91"/>
@@ -6991,9 +6991,9 @@ Spark Fun Electronics SKU : COM-08034</description>
 <label x="153.9" y="242.6" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="IO_PORT" gate="A" pin="4"/>
-<wire x1="387.35" y1="288.29" x2="384.81" y2="288.29" width="0.1524" layer="91"/>
-<label x="360.68" y="288.29" size="1.778" layer="95"/>
+<pinref part="IO_PORT" gate="A" pin="1"/>
+<wire x1="387.35" y1="295.91" x2="384.81" y2="295.91" width="0.1524" layer="91"/>
+<label x="360.68" y="295.91" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="STAT7" class="0">
@@ -7062,9 +7062,9 @@ Spark Fun Electronics SKU : COM-08034</description>
 <label x="278.6" y="272.6" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="IO_PORT" gate="A" pin="3"/>
-<wire x1="387.35" y1="290.83" x2="384.81" y2="290.83" width="0.1524" layer="91"/>
-<label x="360.68" y="290.83" size="1.778" layer="95"/>
+<pinref part="IO_PORT" gate="A" pin="4"/>
+<wire x1="387.35" y1="288.29" x2="384.81" y2="288.29" width="0.1524" layer="91"/>
+<label x="360.68" y="288.29" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="STAT1" class="0">
@@ -7081,9 +7081,9 @@ Spark Fun Electronics SKU : COM-08034</description>
 <label x="257.3" y="293.5" size="1.778" layer="95" rot="R90"/>
 </segment>
 <segment>
-<pinref part="IO_PORT" gate="A" pin="2"/>
-<wire x1="387.35" y1="293.37" x2="384.81" y2="293.37" width="0.1524" layer="91"/>
-<label x="360.68" y="293.37" size="1.778" layer="95"/>
+<pinref part="IO_PORT" gate="A" pin="5"/>
+<wire x1="387.35" y1="285.75" x2="384.81" y2="285.75" width="0.1524" layer="91"/>
+<label x="360.68" y="285.75" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="UART1_RX" class="0">
@@ -7093,9 +7093,9 @@ Spark Fun Electronics SKU : COM-08034</description>
 <label x="255.3" y="293.5" size="1.778" layer="95" rot="R90"/>
 </segment>
 <segment>
-<pinref part="IO_PORT" gate="A" pin="5"/>
-<wire x1="387.35" y1="285.75" x2="384.81" y2="285.75" width="0.1524" layer="91"/>
-<label x="360.68" y="285.75" size="1.778" layer="95"/>
+<pinref part="IO_PORT" gate="A" pin="6"/>
+<wire x1="387.35" y1="283.21" x2="384.81" y2="283.21" width="0.1524" layer="91"/>
+<label x="360.68" y="283.21" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="TXRQST" class="0">
@@ -7390,9 +7390,9 @@ Spark Fun Electronics SKU : COM-08034</description>
 <label x="160.2" y="252.6" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="IO_PORT" gate="A" pin="6"/>
-<wire x1="387.35" y1="283.21" x2="384.81" y2="283.21" width="0.1524" layer="91"/>
-<label x="360.68" y="283.21" size="1.778" layer="95"/>
+<pinref part="IO_PORT" gate="A" pin="3"/>
+<wire x1="387.35" y1="290.83" x2="384.81" y2="290.83" width="0.1524" layer="91"/>
+<label x="360.68" y="290.83" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="UART0_CHAN_TX" class="0">
@@ -7402,9 +7402,9 @@ Spark Fun Electronics SKU : COM-08034</description>
 <label x="153.8" y="244.6" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="IO_PORT" gate="A" pin="1"/>
-<wire x1="387.35" y1="295.91" x2="384.81" y2="295.91" width="0.1524" layer="91"/>
-<label x="360.68" y="295.91" size="1.778" layer="95"/>
+<pinref part="IO_PORT" gate="A" pin="2"/>
+<wire x1="387.35" y1="293.37" x2="384.81" y2="293.37" width="0.1524" layer="91"/>
+<label x="360.68" y="293.37" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="DSP_RESET" class="0">

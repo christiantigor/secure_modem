@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.01" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
+<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="no" active="no"/>
 <layer number="16" name="Bottom" color="1" fill="1" visible="no" active="no"/>
@@ -6693,6 +6693,11 @@ Spark Fun Electronics SKU : COM-08034</description>
 <wire x1="387.35" y1="275.59" x2="384.81" y2="275.59" width="0.1524" layer="91"/>
 <label x="378.968" y="275.59" size="1.778" layer="95"/>
 </segment>
+<segment>
+<pinref part="R2" gate="G$1" pin="2"/>
+<wire x1="137.16" y1="236.22" x2="135.89" y2="236.22" width="0.1524" layer="91"/>
+<label x="135.89" y="233.68" size="1.778" layer="95"/>
+</segment>
 </net>
 <net name="VREF_1V" class="0">
 <segment>
@@ -6864,11 +6869,6 @@ Spark Fun Electronics SKU : COM-08034</description>
 <wire x1="252.73" y1="320.04" x2="247.65" y2="320.04" width="0.1524" layer="91"/>
 <wire x1="247.65" y1="320.04" x2="246.38" y2="320.04" width="0.1524" layer="91"/>
 <label x="246.38" y="317.5" size="1.778" layer="95"/>
-</segment>
-<segment>
-<pinref part="R2" gate="G$1" pin="2"/>
-<wire x1="137.16" y1="236.22" x2="135.89" y2="236.22" width="0.1524" layer="91"/>
-<label x="135.89" y="233.68" size="1.778" layer="95"/>
 </segment>
 <segment>
 <pinref part="SW1" gate="A" pin="8"/>
