@@ -1,0 +1,15 @@
+Partlist exported from C:/Users/tritronik/Documents/GitHub/secure_modem/Board/ambe_v1.sch at 27/08/2014 12:42:28
+
+Assembly variant: 
+
+Qty Value             Device            Parts                                                  
+1                     PINHD-1X5         MICRO_PORT                                             
+3                     PINHD-1X10        CODEC_PORT, IO_PORT, MICRO_PORT_1                      
+2                     SW_DIP-8          SW1, SW2                                               
+1                     XTAL-4-3225       Q1                                                     
+1   AMBE-3000LQFP-128 AMBE-3000LQFP-128 IC3                                                    
+8   C0.1uF 10V        C-EUC0805         C4, C5, C6, C7, C8, C9, C10, C11                       
+1   C1uF 10V          C-EUC0805         C3                                                     
+2   C10uF 16V         C-EUC0805         C1, C2                                                 
+13  R10K              R-EU_R0805        R2, R3, R4, R5, R6, R7, R8, R9, R10, R11, R12, R13, R14
+1   R24.9K            R-EU_R0805        R1                                                     

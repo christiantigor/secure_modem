@@ -6938,9 +6938,9 @@ Spark Fun Electronics SKU : COM-08034</description>
 <label x="217.3" y="293.9" size="1.778" layer="95" rot="R90"/>
 </segment>
 <segment>
-<pinref part="CODEC_PORT" gate="A" pin="2"/>
-<wire x1="424.942" y1="293.37" x2="422.91" y2="293.37" width="0.1524" layer="91"/>
-<label x="400.05" y="293.37" size="1.778" layer="95"/>
+<pinref part="CODEC_PORT" gate="A" pin="1"/>
+<wire x1="424.942" y1="295.91" x2="422.91" y2="295.91" width="0.1524" layer="91"/>
+<label x="400.05" y="295.91" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="SPISTE" class="0">
@@ -6962,9 +6962,9 @@ Spark Fun Electronics SKU : COM-08034</description>
 <label x="257.1" y="169.2" size="1.778" layer="95" rot="R90"/>
 </segment>
 <segment>
-<pinref part="CODEC_PORT" gate="A" pin="3"/>
-<wire x1="424.942" y1="290.83" x2="422.91" y2="290.83" width="0.1524" layer="91"/>
-<label x="400.05" y="290.83" size="1.778" layer="95"/>
+<pinref part="CODEC_PORT" gate="A" pin="2"/>
+<wire x1="424.942" y1="293.37" x2="422.91" y2="293.37" width="0.1524" layer="91"/>
+<label x="400.05" y="293.37" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="CODEC_TX_DATA" class="0">
@@ -6974,9 +6974,9 @@ Spark Fun Electronics SKU : COM-08034</description>
 <label x="259.1" y="169.3" size="1.778" layer="95" rot="R90"/>
 </segment>
 <segment>
-<pinref part="CODEC_PORT" gate="A" pin="4"/>
-<wire x1="424.942" y1="288.29" x2="422.91" y2="288.29" width="0.1524" layer="91"/>
-<label x="400.05" y="288.29" size="1.778" layer="95"/>
+<pinref part="CODEC_PORT" gate="A" pin="3"/>
+<wire x1="424.942" y1="290.83" x2="422.91" y2="290.83" width="0.1524" layer="91"/>
+<label x="400.05" y="290.83" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="UART0_CHAN_RX" class="0">
@@ -7043,9 +7043,9 @@ Spark Fun Electronics SKU : COM-08034</description>
 <label x="278.3" y="264.6" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="CODEC_PORT" gate="A" pin="5"/>
-<wire x1="424.942" y1="285.75" x2="422.91" y2="285.75" width="0.1524" layer="91"/>
-<label x="400.05" y="285.75" size="1.778" layer="95"/>
+<pinref part="CODEC_PORT" gate="A" pin="4"/>
+<wire x1="424.942" y1="288.29" x2="422.91" y2="288.29" width="0.1524" layer="91"/>
+<label x="400.05" y="288.29" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="STAT3" class="0">
@@ -7129,9 +7129,9 @@ Spark Fun Electronics SKU : COM-08034</description>
 <label x="249.3" y="293.6" size="1.778" layer="95" rot="R90"/>
 </segment>
 <segment>
-<pinref part="CODEC_PORT" gate="A" pin="6"/>
-<wire x1="424.942" y1="283.21" x2="422.91" y2="283.21" width="0.1524" layer="91"/>
-<label x="400.05" y="283.21" size="1.778" layer="95"/>
+<pinref part="CODEC_PORT" gate="A" pin="5"/>
+<wire x1="424.942" y1="285.75" x2="422.91" y2="285.75" width="0.1524" layer="91"/>
+<label x="400.05" y="285.75" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="HOST_CLK" class="0">
@@ -7141,9 +7141,9 @@ Spark Fun Electronics SKU : COM-08034</description>
 <label x="247.3" y="293.6" size="1.778" layer="95" rot="R90"/>
 </segment>
 <segment>
-<pinref part="CODEC_PORT" gate="A" pin="7"/>
-<wire x1="424.942" y1="280.67" x2="422.91" y2="280.67" width="0.1524" layer="91"/>
-<label x="400.05" y="280.67" size="1.778" layer="95"/>
+<pinref part="CODEC_PORT" gate="A" pin="6"/>
+<wire x1="424.942" y1="283.21" x2="422.91" y2="283.21" width="0.1524" layer="91"/>
+<label x="400.05" y="283.21" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="RXRQST" class="0">
@@ -7211,9 +7211,9 @@ Spark Fun Electronics SKU : COM-08034</description>
 <label x="160.1" y="254.6" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="CODEC_PORT" gate="A" pin="1"/>
-<wire x1="424.942" y1="295.91" x2="422.91" y2="295.91" width="0.1524" layer="91"/>
-<label x="400.05" y="295.91" size="1.778" layer="95"/>
+<pinref part="CODEC_PORT" gate="A" pin="7"/>
+<wire x1="424.942" y1="280.67" x2="422.91" y2="280.67" width="0.1524" layer="91"/>
+<label x="400.05" y="280.67" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="STAT0" class="0">
