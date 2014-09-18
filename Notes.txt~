@@ -1,0 +1,22 @@
+2014-09-18
+
+FDMDV modulation
+----------------
+input could be .c2 or .bit or .wav file (e.g. hts1a_ambe2000.wav)
+output .raw file
+then sink to audio output
+
+Simple tutorial, after successful Codec2 installation from https://github.com/freedv/codec2
+---------------
+- go to build_linux directory
+- on terminal ./src/c2enc 2400 ../wav/hts1a.wav hts1a_c2.bit	(encoding with codec2)
+- ./src/fdmdv_mod hts1a_c2.bit test_c2.raw			(mod with fdmdv)
+- ./src/fdmdv_demod test_c2.raw test_c2_demod.bit		(demod with fdmdv)
+- ./src/c2dec 2400 test_c2_demod.bit test_c2_dec.wav		(decoding with codec2)
+- play -t wav -r 8000 -s -2 test_c2_dec.wav
+
+- ./src/c2enc 2400 ../raw/hts1a.raw hts1a_c2.bit		(encoding with codec2)
+- ./src/fdmdv_mod hts1a_c2.bit test_c2.raw			(mod with fdmdv)
+- ./src/fdmdv_demod test_c2.raw test_c2_demod.bit		(demod with fdmdv)
+- ./src/c2dec 2400 test_c2_demod.bit test_c2_dec.raw		(decoding with codec2)
+- play -r 8000 -s -2 test_c2_dec.raw
