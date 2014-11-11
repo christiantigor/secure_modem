@@ -1,0 +1,44 @@
+from Crypto.Cipher import AES
+import subprocess
+import time
+
+#open encoded file (.bit)
+f = open('hts1a_c2.bit','r')
+encodedFile = f.read()
+h = encodedFile.encode('hex')
+
+#trim encodedFile so that it will be multiple of 16 in length (trimmed .bit file can be played after decoded back)
+l = len(encodedFile)
+mod = l%16
+if mod == 0:
+    pass
+else:
+    encodedFile = encodedFile[:-mod]
+
+#write edited encoded file (.bit)
+#f = open('hts1a_c2_edited.bit','w')
+#f.write(encodedFile)
+#f.close()
+
+#encrypt file
+key = 'mysecretpassword'
+encryptor = AES.new(key, AES.MODE_ECB)
+encryptedVoice = encryptor.encrypt(encodedFile)
+
+#print encryptedVoice
+
+#write encryptedVoice to file
+fi = open('hts1a_c2_enc.bit','w')
+fi.write(encryptedVoice)
+fi.close()
+
+time.sleep(5)
+
+#decrypt file
+decryptor = AES.new(key, AES.MODE_ECB)
+decryptedVoice = decryptor.decrypt(encryptedVoice)
+
+#write decryptedVoice to file
+fi = open('hts1a_c2_dec.bit','w')
+fi.write(decryptedVoice)
+fi.close()
