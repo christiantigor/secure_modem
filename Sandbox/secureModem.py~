@@ -5,9 +5,11 @@ import time
 #open encoded file (.bit)
 f = open('hts1a_c2.bit','r')
 encodedFile = f.read()
-h = encodedFile.encode('hex')
+#h = encodedFile.encode('hex')
 #print h
 #print type(encodedFile)
+
+#check len of encoded file
 l = len(encodedFile)
 mod = l%16
 if mod == 0:
@@ -19,12 +21,26 @@ else:
 key = 'mysecretpassword'
 encryptor = AES.new(key, AES.MODE_ECB)
 encryptedVoice = encryptor.encrypt(encodedFile)
-
+encVoHex = encryptedVoice.encode('hex')
 #print encryptedVoice
 
-#write encryptedVoice to file
+#add start and end indicator to encryptedVoice
+start = 'securemodemstart'
+end = 'securemodemend'
+start = start.encode('hex')
+end = end.encode('hex')
+encVoHex = start + encVoHex + end
+
+#multiply encVoHex
+encVoHex = encVoHex + encVoHex + encVoHex
+print encVoHex
+
+#decode back encVoHex
+encVoHex = encVoHex.decode('hex')
+
+#write encVoHex to file
 fi = open('hts1a_c2_enc.bit','w')
-fi.write(encryptedVoice)
+fi.write(encVoHex)
 fi.close()
 
 time.sleep(5)
