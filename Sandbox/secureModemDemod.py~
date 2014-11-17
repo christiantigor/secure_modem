@@ -47,7 +47,7 @@ else:
 
 
 #decrypt file
-encVo = encVohex.decode('hex')
+encVo = encVoHex.decode('hex')
 key = 'mysecretpassword'
 decryptor = AES.new(key, AES.MODE_ECB)
 decryptedVoice = decryptor.decrypt(encVo)
@@ -58,3 +58,4 @@ fi.write(decryptedVoice)
 fi.close()
 
 #decoding with codec2
+#./c2dec 2400 hts1a_c2_dec.bit hts1a_dec.raw

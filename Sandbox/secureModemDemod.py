@@ -58,3 +58,5 @@ fi.write(decryptedVoice)
 fi.close()
 
 #decoding with codec2
+#./c2dec 2400 hts1a_c2_dec.bit hts1a_dec.raw
+#play -r 8000 -s -2 hts1a_dec.raw
