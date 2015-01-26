@@ -5,7 +5,7 @@ import time
 
 #configure serial
 ser = serial.Serial(
-    port = 'COM13',
+    port = 'COM4',
     baudrate = 460800,
     timeout = 1,
     rtscts = 0,
@@ -20,12 +20,12 @@ pckOp4 = '610004002A002F01'
 
 #ser.write(pckOp1.decode('hex'))
 #time.sleep(0.02)
-ser.write(pckOp2.decode('hex'))
-time.sleep(0.02)
-ser.write(pckOp3.decode('hex'))
-time.sleep(0.02)
-ser.write(pckOp4.decode('hex'))
-time.sleep(0.02)
+#ser.write(pckOp2.decode('hex'))
+#time.sleep(0.02)
+#ser.write(pckOp3.decode('hex'))
+#time.sleep(0.02)
+#ser.write(pckOp4.decode('hex'))
+#time.sleep(0.02)
 
 #open encoded file
 f = open('rec_ref_play_a.bit','rb')
@@ -75,10 +75,10 @@ for i in range(len(chunks)-1):
 pckCl1 = '610003002B2F07'
 pckCl2 = '6100040400002F2F'
 pckCl3 = '61000900342600000700002F33'
-ser.write(pckCl1.decode('hex'))
-time.sleep(0.02)
-ser.write(pckCl2.decode('hex'))
-time.sleep(0.02)
-ser.write(pckCl3.decode('hex'))
-time.sleep(0.02)
+#ser.write(pckCl1.decode('hex'))
+#time.sleep(0.02)
+#ser.write(pckCl2.decode('hex'))
+#time.sleep(0.02)
+#ser.write(pckCl3.decode('hex'))
+#time.sleep(0.02)
 
