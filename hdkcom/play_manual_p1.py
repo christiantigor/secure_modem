@@ -1,11 +1,11 @@
-#software to play encoded file by AMBE3000
+#software to play encoded file by AMBE3000 (input to p1)
 import re
 import serial
 import time
 
 #configure serial
 ser = serial.Serial(
-    port = 'COM14',
+    port = 'COM13',
     baudrate = 460800,
     timeout = 1,
     rtscts = 0,
@@ -13,13 +13,13 @@ ser = serial.Serial(
 )
 
 #send opening packet
-pckOp1 = '6100040400022F2D'
+pckOp1 = '61002C0038004749000A44038002A044038001414403800483440380053E44038005BB440380060448008049000A2F56'
 pckOp2 = '6100110010003200400B0709270518401500012F37'
 pckOp3 = '61000A0044038002A049000A2F03'
 pckOp4 = '610004002A002F01'
 
-ser.write(pckOp1.decode('hex'))
-time.sleep(0.02)
+#ser.write(pckOp1.decode('hex'))
+#time.sleep(0.02)
 ser.write(pckOp2.decode('hex'))
 time.sleep(0.02)
 ser.write(pckOp3.decode('hex'))
@@ -28,7 +28,7 @@ ser.write(pckOp4.decode('hex'))
 time.sleep(0.02)
 
 #open encoded file
-f = open('rec_ref_play.bit','r')
+f = open('rec_ref_play_a.bit','rb')
 encodedFile = f.read()
 h = encodedFile.encode('hex')
 
@@ -65,6 +65,7 @@ for i in range(len(chunks)):
 #print chunks[0]
 
 #send chunk per 20ms
+#print len(chunks)
 for i in range(len(chunks)-1):
     asciiChunk = chunks[i].decode('hex')
     ser.write(asciiChunk)
@@ -73,8 +74,11 @@ for i in range(len(chunks)-1):
 #send closing packet
 pckCl1 = '610003002B2F07'
 pckCl2 = '6100040400002F2F'
+pckCl3 = '61000900342600000700002F33'
 ser.write(pckCl1.decode('hex'))
 time.sleep(0.02)
 ser.write(pckCl2.decode('hex'))
+time.sleep(0.02)
+ser.write(pckCl3.decode('hex'))
 time.sleep(0.02)
 
