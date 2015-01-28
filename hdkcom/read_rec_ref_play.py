@@ -1,4 +1,4 @@
-#software for open rec_reference.bit
+#software for open rec_ref_play.bit
 #to be used for comparison with hdk sniffing
 
 #open encoded file (.bit)

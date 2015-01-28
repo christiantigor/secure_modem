@@ -38,7 +38,7 @@ chunkSize = 18
 chunks = []
 pckHeader = '0012010148'
 pckSmplsCmodPrtyId = '03A00210402F'
-for i in range(0, whole, chunkSize):
+for i in range(0,whole,chunkSize):
     chunk = h[i:i+chunkSize]
     chunk = pckHeader + chunk + pckSmplsCmodPrtyId
     #print chunk
