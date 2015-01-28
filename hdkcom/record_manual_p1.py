@@ -1,4 +1,4 @@
-#software to record encoded file by AMBE3000 (input to usb)
+#software to record encoded file by AMBE3000 (input to P1)
 #set hdkboard to idle mode
 import re
 import serial
@@ -6,7 +6,7 @@ import time
 
 #configure serial
 ser = serial.Serial(
-    port = 'COM14',
+    port = 'COM4',
     baudrate = 460800,
     timeout = 0.02, #period of incoming data is 20ms
     rtscts = 0,
@@ -14,7 +14,7 @@ ser = serial.Serial(
 )
 
 #send opening packet
-pckOp1 = '6100040400022F2D'
+pckOp1 = '61002C0038004749000A44038002A044038001414403800483440380053E44038005BB440380060448008049000A2F56'
 pckOp2 = '6100110010003200400B0709270518401500012F37'
 pckOp3 = '61000A0044038002A049000A2F03'
 pckOp4 = '610004002A002F01'
@@ -44,7 +44,7 @@ f.close()
 fRaw = open('rec_manual_raw.bit','rb') #use recorded file
 raw = fRaw.read()
 fRaw.close()
-#print raw
+print raw
 
 #remove response of opening packet
 pckOpRspn1 = '6100010401'
@@ -80,3 +80,4 @@ ser.write(pckCl1.decode('hex'))
 time.sleep(0.02)
 ser.write(pckCl2.decode('hex'))
 time.sleep(0.02)
+

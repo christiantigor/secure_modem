@@ -1,4 +1,5 @@
 #software to play encoded file by AMBE3000 (input to usb)
+#set hdkboard to idle mode
 import re
 import serial
 import time
@@ -28,8 +29,8 @@ ser.write(pckOp4.decode('hex'))
 time.sleep(0.02)
 
 #open encoded file
-#f = open('rec_ref_play_a.bit','rb')
-f = open('rec_ref_play.bit','rb')
+#f = open('rec_ref_play_a.bit','rb') #open recorded file using hdkcom
+f = open('rec_manual_audio.bit','rb') #open recorded file using python
 encodedFile = f.read()
 h = encodedFile.encode('hex')
 

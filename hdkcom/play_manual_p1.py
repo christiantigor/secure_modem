@@ -1,4 +1,5 @@
 #software to play encoded file by AMBE3000 (input to p1)
+#set hdkboard to a3kdirect mode
 import re
 import serial
 import time
@@ -16,19 +17,20 @@ ser = serial.Serial(
 pckOp1 = '61002C0038004749000A44038002A044038001414403800483440380053E44038005BB440380060448008049000A2F56'
 pckOp2 = '6100110010003200400B0709270518401500012F37'
 pckOp3 = '61000A0044038002A049000A2F03'
-pckOp4 = '610004002A002F01'
+pckOp4 = '610004002A002F01' #codec start
 
-#ser.write(pckOp1.decode('hex'))
-#time.sleep(0.02)
-#ser.write(pckOp2.decode('hex'))
-#time.sleep(0.02)
-#ser.write(pckOp3.decode('hex'))
-#time.sleep(0.02)
-#ser.write(pckOp4.decode('hex'))
-#time.sleep(0.02)
+ser.write(pckOp1.decode('hex'))
+time.sleep(0.02)
+ser.write(pckOp2.decode('hex'))
+time.sleep(0.02)
+ser.write(pckOp3.decode('hex'))
+time.sleep(0.02)
+ser.write(pckOp4.decode('hex'))
+time.sleep(0.02)
 
 #open encoded file
-f = open('rec_ref_play_a.bit','rb')
+#f = open('rec_ref_play_a.bit','rb') #open recorded file using hdkcom
+f = open('rec_manual_audio.bit','rb') #open recorded file using python
 encodedFile = f.read()
 h = encodedFile.encode('hex')
 
@@ -72,11 +74,11 @@ for i in range(len(chunks)-1):
     time.sleep(0.02)
     
 #send closing packet
-pckCl1 = '610003002B2F07'
-pckCl2 = '6100040400002F2F'
-pckCl3 = '61000900342600000700002F33'
-#ser.write(pckCl1.decode('hex'))
-#time.sleep(0.02)
+pckCl1 = '610003002B2F07' #codec stop
+#pckCl2 = '6100040400002F2F' #packet type 0x04 is for hdk
+#pckCl3 = '61000900342600000700002F33' #reset ambe to use ppt iface without codec
+ser.write(pckCl1.decode('hex'))
+time.sleep(0.02)
 #ser.write(pckCl2.decode('hex'))
 #time.sleep(0.02)
 #ser.write(pckCl3.decode('hex'))
