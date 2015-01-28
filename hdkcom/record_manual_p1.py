@@ -1,5 +1,5 @@
 #software to record encoded file by AMBE3000 (input to P1)
-#set hdkboard to idle mode
+#set hdkboard to a3kdirect mode
 import re
 import serial
 import time
@@ -17,7 +17,7 @@ ser = serial.Serial(
 pckOp1 = '61002C0038004749000A44038002A044038001414403800483440380053E44038005BB440380060448008049000A2F56'
 pckOp2 = '6100110010003200400B0709270518401500012F37'
 pckOp3 = '61000A0044038002A049000A2F03'
-pckOp4 = '610004002A002F01'
+pckOp4 = '610004002A002F01' #codec start
 
 ser.write(pckOp1.decode('hex'))
 time.sleep(0.02)
@@ -39,15 +39,18 @@ for _ in range(100):
     f.write(hexa)
 f.close()
 
+time.sleep(0.02)
+
 #process raw file to generate audio file
 #fRaw = open('rec_manual_ref.bit','rb') #use reference file
 fRaw = open('rec_manual_raw.bit','rb') #use recorded file
 raw = fRaw.read()
 fRaw.close()
-print raw
+#print raw
 
 #remove response of opening packet
-pckOpRspn1 = '6100010401'
+#pckOpRspn1 = '6100010401' #response at usb
+pckOpRspn1 = '61001800380047004900440044004400440044004400480049002f00' #response at p1
 pckOpRspn2 = '610010001000320040000b000900050015002f4f'
 pckOpRspn3 = '61000600440049002f24'
 pckOpRspn4 = '610004002a002f01'
@@ -74,10 +77,10 @@ for i in range(0,whole,chunkSize):
 fAudio.close()
 
 #send closing packet
-pckCl1 = '610003002B2F07'
-pckCl2 = '6100040400002F2F'
+pckCl1 = '610003002B2F07' #codec stop
+#pckCl2 = '6100040400002F2F' #packet type 0x04 for hdk
 ser.write(pckCl1.decode('hex'))
 time.sleep(0.02)
-ser.write(pckCl2.decode('hex'))
-time.sleep(0.02)
+#ser.write(pckCl2.decode('hex'))
+#time.sleep(0.02)
 
