@@ -1,0 +1,4 @@
+record audio using audacity
+- 16-bit PCM
+- mono
+- 8000 Hz

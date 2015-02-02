@@ -29,7 +29,7 @@ ser.write(pckOp4.decode('hex'))
 time.sleep(0.02)
 
 #open encoded file
-f = open('rec_ref_play_a.bit','rb') #open recorded file using hdkcom
+f = open('rec_ref_play_a.bit','rb') #open file recordec by hdkcom
 #f = open('rec_manual_audio.bit','rb') #open recorded file using python
 encodedFile = f.read()
 h = encodedFile.encode('hex')
@@ -53,15 +53,15 @@ pckStart = '61'
 for i in range(len(chunks)):
     xorRslt = 0
     #xor each byte in chunk
-    for j in range(0, len(chunks[i]), byteSize):
+    for j in range(0,len(chunks[i]),byteSize):
         byte = chunks[i][j:j+2]
         num = int(byte,16)
         xorRslt = xorRslt ^ num
     if xorRslt < 16:
-        pckPrty = str(format(xorRslt, 'x'))
+        pckPrty = str(format(xorRslt,'x'))
         pckPrty = '0' + pckPrty
     else:
-        pckPrty = str(format(xorRslt, 'x'))
+        pckPrty = str(format(xorRslt,'x'))
     chunks[i] = pckStart + chunks[i] + pckPrty
     #print chunks[i]
 #print chunks[0]

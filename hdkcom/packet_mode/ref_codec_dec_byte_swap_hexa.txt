@@ -1,0 +1,25 @@
+Read audio data of ref_codec_dec_byte_swap.pcm
+
+00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 ff ff ff ff 00 01 00 01 ff ff
+ff ff 00 00 00 00 ff ff ff ff 00 00 00 03 00 01
+ff fe ff fd 00 00 00 03 00 01 00 00 ff fe 00 01
+00 01 ff ff 00 03 ff ff ff fe 00 01 00 00 ff ff
+00 02 00 02 ff ff 00 00 ff fe 00 03 ff ff ff fd
+00 03 ff fe 00 02 ff fe ff ff ff fe ff fb 00 04
+ff fb 00 07 00 06 ff fe ff fd ff fb ff fe ff fa
+00 05 00 03 00 00 00 03 00 03 00 04 ff fc 00 04
+00 05 00 05 00 01 ff f9 ff fb ff ff 00 03 ff fd
+00 03 00 09 00 06 00 00 ff fa ff f3 ff f7 00 00
+00 00 00 06 ff fd ff fa ff f9 ff f6 ff f7 ff fd
+00 06 00 0c 00 11 ff ff 00 06 00 05 ff f2 ff fb
+00 0f 00 1f 00 02 ff f2 ff fa ff f3 00 10 00 19
+00 0c 00 13 ff f1 ff dd ff e7 00 00 00 0e 00 06
+ff fa ff f9 00 15 ff f7 ff e7 00 03 00 0b 00 00
+ff ff 00 0d 00 05 ff f4 ff f5 ff fb ff f3 ff f8
+ff fb 00 0a ff f4 ff e5 ff e7 ff f2 00 1f 00 24
+00 18 00 08 00 03 ff f2 ff eb ff fc 00 15 00 03
+00 0d ff fd ff f1 00 04 ff e6 00 1e ff fe ff e5
+00 0e 00 25 ff f8
+
+//other part are not recorded
