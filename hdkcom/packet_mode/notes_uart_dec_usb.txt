@@ -1,0 +1,2 @@
+Listen to usb of hdk
+hdkcom.exe -port COM14 460800 -uart -r 39 -dec rec_packet_enc.bit rec_packet_dec.pcm

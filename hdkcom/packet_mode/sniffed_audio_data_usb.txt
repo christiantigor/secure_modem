@@ -1,0 +1,25 @@
+ Sniffed audio data when we encode ref_codec_dec.pcm
+ Compared with sniffed_audio_data_ref.txt
+ every data byte is reversed (take 1 word, LSByte-> MSByte and MSByte->LSByte)
+ 
+ 61 01 47 02 00 A0 00 00 00 00 00 00 00 00 00 00   a.G.. ..........
+ 00 00 00 00 00 00 FF FF FF FF 00 01 00 01 FF FF   ......ÿÿÿÿ....ÿÿ
+ FF FF 00 00 00 00 FF FF FF FF 00 00 00 03 00 01   ÿÿ....ÿÿÿÿ......
+ FF FE FF FD 00 00 00 03 00 01 00 00 FF FE 00 01   ÿþÿý........ÿþ..
+ 00 01 FF FF 00 03 FF FF FF FE 00 01 00 00 FF FF   ..ÿÿ..ÿÿÿþ....ÿÿ
+ 00 02 00 02 FF FF 00 00 FF FE 00 03 FF FF FF FD   ....ÿÿ..ÿþ..ÿÿÿý
+ 00 03 FF FE 00 02 FF FE FF FF FF FE FF FB 00 04   ..ÿþ..ÿþÿÿÿþÿû..
+ FF FB 00 07 00 06 FF FE FF FD FF FB FF FE FF FA   ÿû....ÿþÿýÿûÿþÿú
+ 00 05 00 03 00 00 00 03 00 03 00 04 FF FC 00 04   ............ÿü..
+ 00 05 00 05 00 01 FF F9 FF FB FF FF 00 03 FF FD   ......ÿùÿûÿÿ..ÿý
+ 00 03 00 09 00 06 00 00 FF FA FF F3 FF F7 00 00   ........ÿúÿóÿ÷..
+ 00 00 00 06 FF FD FF FA FF F9 FF F6 FF F7 FF FD   ....ÿýÿúÿùÿöÿ÷ÿý
+ 00 06 00 0C 00 11 FF FF 00 06 00 05 FF F2 FF FB   ......ÿÿ....ÿòÿû
+ 00 0F 00 1F 00 02 FF F2 FF FA FF F3 00 10 00 19   ......ÿòÿúÿó....
+ 00 0C 00 13 FF F1 FF DD FF E7 00 00 00 0E 00 06   ....ÿñÿÝÿç......
+ FF FA FF F9 00 15 FF F7 FF E7 00 03 00 0B 00 00   ÿúÿù..ÿ÷ÿç......
+ FF FF 00 0D 00 05 FF F4 FF F5 FF FB FF F3 FF F8   ÿÿ....ÿôÿõÿûÿóÿø
+ FF FB 00 0A FF F4 FF E5 FF E7 FF F2 00 1F 00 24   ÿû..ÿôÿåÿçÿò...$
+ 00 18 00 08 00 03 FF F2 FF EB FF FC 00 15 00 03   ......ÿòÿëÿü....
+ 00 0D FF FD FF F1 00 04 FF E6 00 1E FF FE FF E5   ..ÿýÿñ..ÿæ..ÿþÿå
+ 00 0E 00 25 FF F8 02 10 40 2F AE                  ...%ÿø..@/®

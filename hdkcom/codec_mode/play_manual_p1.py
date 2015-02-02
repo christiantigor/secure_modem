@@ -29,8 +29,8 @@ ser.write(pckOp4.decode('hex'))
 time.sleep(0.02)
 
 #open encoded file
-#f = open('rec_ref_play_a.bit','rb') #open recorded file using hdkcom
-f = open('rec_manual_audio.bit','rb') #open recorded file using python
+f = open('rec_ref_play_a.bit','rb') #open recorded file using hdkcom
+#f = open('rec_manual_audio.bit','rb') #open recorded file using python
 encodedFile = f.read()
 h = encodedFile.encode('hex')
 
