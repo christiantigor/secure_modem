@@ -1,5 +1,6 @@
-#software to encode, byte swapped pcm file (input to usb)
-#set hdkboard to idle mode
+#software to encode, byte swapped pcm file (input to p1)
+#set hdkboard to a3kdirect mode
+
 import re
 import serial
 import time
@@ -7,7 +8,7 @@ import byte_swap
 
 #configure serial
 ser = serial.Serial(
-    port = 'COM14',
+    port = 'COM4',
     baudrate = 460800,
     timeout = 0.02,
     rtscts = 0,
@@ -15,12 +16,9 @@ ser = serial.Serial(
 )
 
 #send opening packet
-pckOp1 = '6100040400012F2E'
-pckOp2 = '6100110010003200400B0709270518401500012F37'
+pckOp1 = '6100110010003200400B0709270518401500012F37'
 
 ser.write(pckOp1.decode('hex'))
-time.sleep(0.02)
-ser.write(pckOp2.decode('hex'))
 time.sleep(0.02)
 
 #swap byte of pcm file
@@ -96,8 +94,3 @@ for i in range(0,whole,chunkSize):
         chunk = chunk.decode('hex')
         fEncoded.write(chunk)
 fEncoded.close()
-
-#send closing packet
-pckCl1 = '6100040400002F2F'
-ser.write(pckCl1.decode('hex'))
-time.sleep(0.02)
