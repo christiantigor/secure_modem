@@ -1,5 +1,5 @@
-#software to encode, byte swapped pcm file (input to usb)
-#set hdkboard to idle mode
+#software to decode bit file (input to p1)
+#set hdkboard to a3kdirect mode
 import re
 import serial
 import time
@@ -7,7 +7,7 @@ import byte_swap
 
 #configure serial
 ser = serial.Serial(
-    port = 'COM14',
+    port = 'COM4',
     baudrate = 460800,
     timeout = 0.02,
     rtscts = 0,
@@ -15,32 +15,26 @@ ser = serial.Serial(
 )
 
 #send opening packet
-pckOp1 = '6100040400012F2E'
-pckOp2 = '6100110010003200400B0709270518401500012F37'
+pckOp1 = '6100110010003200400B0709270518401500012F37'
 
 ser.write(pckOp1.decode('hex'))
 time.sleep(0.02)
-ser.write(pckOp2.decode('hex'))
-time.sleep(0.02)
 
-#swap byte of pcm file
-byte_swap.swap('rec_packet_raw.pcm','rec_packet_raw_byte_swap.pcm')
-
-
-#open byte swapped pcm file
-f = open('rec_packet_raw_byte_swap.pcm','rb') #open manually recorded file
-#f = open('ref_codec_dec_byte_swap.pcm','rb') #open recorded file by hdkcom
-fPcm = f.read()
+#open bit file
+f = open('manual_enc.bit','rb') #open manually recorded file
+#f = open('ref_codec_enc.bit','rb') #open recorded file by hdkcom
+fBit = f.read()
 f.close()
 
-h = fPcm.encode('hex')
+h = fBit.encode('hex')
+#print h
 
-#split audio file to chunk
+#split encoded file to chunk
 whole = len(h)
-chunkSize = 640
+chunkSize = 18
 chunks = []
-pckHeader = '01470200A0'
-pckCmode = '0210402F'
+pckHeader = '0012010148'
+pckCmode = '03A00200002F'
 for i in range(0,whole,chunkSize):
     chunk = h[i:i+chunkSize]
     if len(chunk) < chunkSize:
@@ -69,7 +63,7 @@ for i in range(len(chunks)):
     #print chunks[i]
     #send chunk continuously
     ser.write(chunks[i].decode('hex'))
-    rspn = ser.read(25)
+    rspn = ser.read(640)
     s += rspn.encode('hex')
     #print rspn.encode('hex')
 #print s
@@ -80,24 +74,25 @@ pckOpRspn2 = '610010001000320040000b000900050015002f4f'
 
 s = re.sub(pckOpRspn1,'',s,count=1)
 s = re.sub(pckOpRspn2,'',s,count=1)
-#print s
+print s
+print len(s)
 
-#open encoded file
-fEncoded = open('manual_enc.bit','wb')
+#open decoded file
+fEncoded = open('manual_dec_unswapped.pcm','wb')
 
 #split response of speech packet to chunk
 whole = len(s)
-chunkSize = 40
+chunkSize = 656 #640 bytes of data and 16 bytes of pckStart + pckHeader + pckPrty
 for i in range(0,whole,chunkSize):
     chunk = s[i:i+chunkSize]
-    if len(chunk) == 40:
+    #print chunk
+    #print '\n'
+    if len(chunk) == chunkSize:
         chunk = chunk[12:] #remove pckStart and pckHeader
-        chunk = chunk[:-10] #remove pckCmode and pckPrty
+        chunk = chunk[:-4] #remove pckCmode and pckPrty
         chunk = chunk.decode('hex')
         fEncoded.write(chunk)
 fEncoded.close()
 
-#send closing packet
-pckCl1 = '6100040400002F2F'
-ser.write(pckCl1.decode('hex'))
-time.sleep(0.02)
+#swap byte of pcm file
+byte_swap.swap('manual_dec_unswapped.pcm','manual_dec.pcm')

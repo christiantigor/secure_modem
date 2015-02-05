@@ -1,4 +1,4 @@
-#software to encode, byte swapped pcm file (input to usb)
+#software to decode bit file (input to usb)
 #set hdkboard to idle mode
 import re
 import serial
@@ -23,24 +23,20 @@ time.sleep(0.02)
 ser.write(pckOp2.decode('hex'))
 time.sleep(0.02)
 
-#swap byte of pcm file
-byte_swap.swap('rec_packet_raw.pcm','rec_packet_raw_byte_swap.pcm')
-
-
-#open byte swapped pcm file
-f = open('rec_packet_raw_byte_swap.pcm','rb') #open manually recorded file
-#f = open('ref_codec_dec_byte_swap.pcm','rb') #open recorded file by hdkcom
-fPcm = f.read()
+#open bit file
+f = open('manual_enc.bit','rb') #open manually recorded file
+#f = open('ref_codec_enc.bit','rb') #open recorded file by hdkcom
+fBit = f.read()
 f.close()
 
-h = fPcm.encode('hex')
+h = fBit.encode('hex')
 
-#split audio file to chunk
+#split encoded file to chunk
 whole = len(h)
-chunkSize = 640
+chunkSize = 18
 chunks = []
-pckHeader = '01470200A0'
-pckCmode = '0210402F'
+pckHeader = '0012010148'
+pckCmode = '03A00200002F'
 for i in range(0,whole,chunkSize):
     chunk = h[i:i+chunkSize]
     if len(chunk) < chunkSize:
@@ -69,7 +65,7 @@ for i in range(len(chunks)):
     #print chunks[i]
     #send chunk continuously
     ser.write(chunks[i].decode('hex'))
-    rspn = ser.read(25)
+    rspn = ser.read(640)
     s += rspn.encode('hex')
     #print rspn.encode('hex')
 #print s
@@ -82,20 +78,23 @@ s = re.sub(pckOpRspn1,'',s,count=1)
 s = re.sub(pckOpRspn2,'',s,count=1)
 #print s
 
-#open encoded file
-fEncoded = open('manual_enc.bit','wb')
+#open decoded file
+fEncoded = open('manual_dec_unswapped.pcm','wb')
 
 #split response of speech packet to chunk
 whole = len(s)
-chunkSize = 40
+chunkSize = 656 #640 bytes of data and 16 bytes of pckStart + pckHeader + pckPrty
 for i in range(0,whole,chunkSize):
     chunk = s[i:i+chunkSize]
-    if len(chunk) == 40:
+    if len(chunk) == 656:
         chunk = chunk[12:] #remove pckStart and pckHeader
-        chunk = chunk[:-10] #remove pckCmode and pckPrty
+        chunk = chunk[:-4] #remove pckCmode and pckPrty
         chunk = chunk.decode('hex')
         fEncoded.write(chunk)
 fEncoded.close()
+
+#swap byte of pcm file
+byte_swap.swap('manual_dec_unswapped.pcm','manual_dec.pcm')
 
 #send closing packet
 pckCl1 = '6100040400002F2F'
