@@ -1,0 +1,7 @@
+record audio:
+arecord -D plughw:1,0 -t raw test.raw
+
+play audio:
+aplay -D plughw:1,0 test.raw
+aplay -D plughw:1,0 -f S16_LE hts1a.raw
+aplay -D plughw:1,0 -t raw rec_packet_raw.pcm
