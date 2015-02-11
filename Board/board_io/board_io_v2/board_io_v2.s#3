@@ -9782,9 +9782,9 @@ We've spent an enormous amount of time creating and checking these footprints an
 <instance part="R3" gate="G$1" x="-25.4" y="50.8" rot="R90"/>
 <instance part="R4" gate="G$1" x="-25.4" y="22.86" rot="R90"/>
 <instance part="PB1" gate="J" x="-25.4" y="12.7" rot="MR0"/>
-<instance part="SW1" gate="G$1" x="-25.4" y="-17.78"/>
-<instance part="R5" gate="G$1" x="-50.8" y="-10.16" rot="R270"/>
-<instance part="R6" gate="G$1" x="-35.56" y="-10.16" rot="R270"/>
+<instance part="SW1" gate="G$1" x="-25.4" y="-22.86"/>
+<instance part="R5" gate="G$1" x="-50.8" y="-15.24" rot="R270"/>
+<instance part="R6" gate="G$1" x="-35.56" y="-15.24" rot="R270"/>
 <instance part="R7" gate="G$1" x="-58.42" y="50.8" rot="R90"/>
 <instance part="LED4" gate="G$1" x="-58.42" y="40.64"/>
 <instance part="R8" gate="G$1" x="-58.42" y="22.86" rot="R90"/>
@@ -9938,9 +9938,9 @@ We've spent an enormous amount of time creating and checking these footprints an
 <segment>
 <pinref part="SW1" gate="G$1" pin="2"/>
 <pinref part="SW1" gate="G$1" pin="1"/>
-<wire x1="-17.78" y1="-17.78" x2="-17.78" y2="-20.32" width="0.1524" layer="91"/>
-<wire x1="-17.78" y1="-20.32" x2="-15.24" y2="-20.32" width="0.1524" layer="91"/>
-<label x="-15.24" y="-20.32" size="1.778" layer="95"/>
+<wire x1="-17.78" y1="-22.86" x2="-17.78" y2="-25.4" width="0.1524" layer="91"/>
+<wire x1="-17.78" y1="-25.4" x2="-15.24" y2="-25.4" width="0.1524" layer="91"/>
+<label x="-15.24" y="-25.4" size="1.778" layer="95"/>
 </segment>
 <segment>
 <pinref part="LED4" gate="G$1" pin="C"/>
@@ -10127,13 +10127,13 @@ We've spent an enormous amount of time creating and checking these footprints an
 </segment>
 <segment>
 <pinref part="R6" gate="G$1" pin="1"/>
-<wire x1="-35.56" y1="-5.08" x2="-33.02" y2="-5.08" width="0.1524" layer="91"/>
-<label x="-35.56" y="-5.08" size="1.778" layer="95"/>
+<wire x1="-35.56" y1="-10.16" x2="-33.02" y2="-10.16" width="0.1524" layer="91"/>
+<label x="-35.56" y="-10.16" size="1.778" layer="95"/>
 </segment>
 <segment>
 <pinref part="R5" gate="G$1" pin="1"/>
-<wire x1="-50.8" y1="-5.08" x2="-48.26" y2="-5.08" width="0.1524" layer="91"/>
-<label x="-50.8" y="-5.08" size="1.778" layer="95"/>
+<wire x1="-50.8" y1="-10.16" x2="-48.26" y2="-10.16" width="0.1524" layer="91"/>
+<label x="-50.8" y="-10.16" size="1.778" layer="95"/>
 </segment>
 <segment>
 <pinref part="R8" gate="G$1" pin="2"/>
@@ -10290,28 +10290,6 @@ We've spent an enormous amount of time creating and checking these footprints an
 <label x="2.54" y="55.88" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="RPI_USB_5V" class="0">
-<segment>
-<pinref part="RPI_USB_1" gate="A" pin="7"/>
-<wire x1="142.24" y1="53.34" x2="139.7" y2="53.34" width="0.1524" layer="91"/>
-<label x="121.92" y="53.34" size="1.778" layer="95"/>
-</segment>
-<segment>
-<pinref part="RPI_USB_1" gate="A" pin="8"/>
-<wire x1="149.86" y1="53.34" x2="152.4" y2="53.34" width="0.1524" layer="91"/>
-<label x="154.94" y="53.34" size="1.778" layer="95"/>
-</segment>
-<segment>
-<pinref part="RPI_USB_2" gate="A" pin="8"/>
-<wire x1="149.86" y1="35.56" x2="152.4" y2="35.56" width="0.1524" layer="91"/>
-<label x="154.94" y="35.56" size="1.778" layer="95"/>
-</segment>
-<segment>
-<pinref part="RPI_USB_2" gate="A" pin="7"/>
-<wire x1="142.24" y1="35.56" x2="139.7" y2="35.56" width="0.1524" layer="91"/>
-<label x="121.92" y="35.56" size="1.778" layer="95"/>
-</segment>
-</net>
 <net name="DSP_RESET" class="0">
 <segment>
 <pinref part="VOCODER_SETTING_PORT" gate="A" pin="1"/>
@@ -10353,11 +10331,11 @@ We've spent an enormous amount of time creating and checking these footprints an
 </segment>
 <segment>
 <pinref part="SW1" gate="G$1" pin="4"/>
-<wire x1="-33.02" y1="-20.32" x2="-50.8" y2="-20.32" width="0.1524" layer="91"/>
+<wire x1="-33.02" y1="-25.4" x2="-50.8" y2="-25.4" width="0.1524" layer="91"/>
 <pinref part="R5" gate="G$1" pin="2"/>
-<wire x1="-50.8" y1="-20.32" x2="-50.8" y2="-15.24" width="0.1524" layer="91"/>
-<wire x1="-50.8" y1="-20.32" x2="-58.42" y2="-20.32" width="0.1524" layer="91"/>
-<label x="-58.42" y="-20.32" size="1.778" layer="95" rot="R90"/>
+<wire x1="-50.8" y1="-25.4" x2="-50.8" y2="-20.32" width="0.1524" layer="91"/>
+<wire x1="-50.8" y1="-25.4" x2="-58.42" y2="-25.4" width="0.1524" layer="91"/>
+<label x="-58.42" y="-25.4" size="1.778" layer="95" rot="R90"/>
 </segment>
 </net>
 <net name="ENCRY_CONFIG1" class="0">
@@ -10368,11 +10346,11 @@ We've spent an enormous amount of time creating and checking these footprints an
 </segment>
 <segment>
 <pinref part="SW1" gate="G$1" pin="3"/>
-<wire x1="-33.02" y1="-17.78" x2="-35.56" y2="-17.78" width="0.1524" layer="91"/>
+<wire x1="-33.02" y1="-22.86" x2="-35.56" y2="-22.86" width="0.1524" layer="91"/>
 <pinref part="R6" gate="G$1" pin="2"/>
-<wire x1="-35.56" y1="-17.78" x2="-35.56" y2="-15.24" width="0.1524" layer="91"/>
-<wire x1="-35.56" y1="-17.78" x2="-43.18" y2="-17.78" width="0.1524" layer="91"/>
-<label x="-43.18" y="-17.78" size="1.778" layer="95" rot="R90"/>
+<wire x1="-35.56" y1="-22.86" x2="-35.56" y2="-20.32" width="0.1524" layer="91"/>
+<wire x1="-35.56" y1="-22.86" x2="-43.18" y2="-22.86" width="0.1524" layer="91"/>
+<label x="-43.18" y="-22.86" size="1.778" layer="95" rot="R90"/>
 </segment>
 </net>
 <net name="OFF_BUTTON" class="0">
@@ -10420,6 +10398,30 @@ We've spent an enormous amount of time creating and checking these footprints an
 <pinref part="R7" gate="G$1" pin="1"/>
 <pinref part="LED4" gate="G$1" pin="A"/>
 <wire x1="-58.42" y1="45.72" x2="-58.42" y2="43.18" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="RPI_USB_5V_1" class="0">
+<segment>
+<pinref part="RPI_USB_1" gate="A" pin="8"/>
+<wire x1="149.86" y1="53.34" x2="152.4" y2="53.34" width="0.1524" layer="91"/>
+<label x="154.94" y="53.34" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="RPI_USB_1" gate="A" pin="7"/>
+<wire x1="142.24" y1="53.34" x2="139.7" y2="53.34" width="0.1524" layer="91"/>
+<label x="119.38" y="53.34" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="RPI_USB_5V_2" class="0">
+<segment>
+<pinref part="RPI_USB_2" gate="A" pin="7"/>
+<wire x1="142.24" y1="35.56" x2="139.7" y2="35.56" width="0.1524" layer="91"/>
+<label x="119.38" y="35.56" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="RPI_USB_2" gate="A" pin="8"/>
+<wire x1="149.86" y1="35.56" x2="152.4" y2="35.56" width="0.1524" layer="91"/>
+<label x="154.94" y="35.56" size="1.778" layer="95"/>
 </segment>
 </net>
 </nets>

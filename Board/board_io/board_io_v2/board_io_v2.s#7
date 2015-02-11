@@ -9737,10 +9737,12 @@ We've spent an enormous amount of time creating and checking these footprints an
 <part name="LED3" library="led" deviceset="LED" device="CHIP-LED0805"/>
 <part name="R3" library="resistor" deviceset="R-EU_" device="R0805" value="R1K"/>
 <part name="R4" library="resistor" deviceset="R-EU_" device="R0805" value="R10K"/>
-<part name="PUSH_BUTTON" library="dp_devices" deviceset="CON_HEADER_1X02" device="-PTH"/>
+<part name="PB1" library="dp_devices" deviceset="CON_HEADER_1X02" device="-PTH"/>
 <part name="SW1" library="SparkFun-Electromechanical" deviceset="SW_DIP-2" device=""/>
 <part name="R5" library="resistor" deviceset="R-EU_" device="R0805" value="R10K"/>
 <part name="R6" library="resistor" deviceset="R-EU_" device="R0805" value="R10K"/>
+<part name="R7" library="resistor" deviceset="R-EU_" device="R0805" value="R1K"/>
+<part name="LED4" library="led" deviceset="LED" device="CHIP-LED0805"/>
 </parts>
 <sheets>
 <sheet>
@@ -9777,10 +9779,12 @@ We've spent an enormous amount of time creating and checking these footprints an
 <instance part="LED3" gate="G$1" x="-25.4" y="40.64"/>
 <instance part="R3" gate="G$1" x="-25.4" y="50.8" rot="R90"/>
 <instance part="R4" gate="G$1" x="-25.4" y="22.86" rot="R90"/>
-<instance part="PUSH_BUTTON" gate="J" x="-25.4" y="12.7" rot="MR0"/>
-<instance part="SW1" gate="G$1" x="-25.4" y="-12.7"/>
-<instance part="R5" gate="G$1" x="-50.8" y="-5.08" rot="R270"/>
-<instance part="R6" gate="G$1" x="-35.56" y="-5.08" rot="R270"/>
+<instance part="PB1" gate="J" x="-25.4" y="12.7" rot="MR0"/>
+<instance part="SW1" gate="G$1" x="-25.4" y="-17.78"/>
+<instance part="R5" gate="G$1" x="-50.8" y="-10.16" rot="R270"/>
+<instance part="R6" gate="G$1" x="-35.56" y="-10.16" rot="R270"/>
+<instance part="R7" gate="G$1" x="-58.42" y="50.8" rot="R90"/>
+<instance part="LED4" gate="G$1" x="-58.42" y="40.64"/>
 </instances>
 <busses>
 </busses>
@@ -9924,15 +9928,20 @@ We've spent an enormous amount of time creating and checking these footprints an
 <segment>
 <wire x1="-25.4" y1="5.08" x2="-22.86" y2="5.08" width="0.1524" layer="91"/>
 <label x="-25.4" y="2.54" size="1.778" layer="95"/>
-<pinref part="PUSH_BUTTON" gate="J" pin="2"/>
+<pinref part="PB1" gate="J" pin="2"/>
 <wire x1="-25.4" y1="10.16" x2="-25.4" y2="5.08" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="SW1" gate="G$1" pin="2"/>
 <pinref part="SW1" gate="G$1" pin="1"/>
-<wire x1="-17.78" y1="-12.7" x2="-17.78" y2="-15.24" width="0.1524" layer="91"/>
-<wire x1="-17.78" y1="-15.24" x2="-15.24" y2="-15.24" width="0.1524" layer="91"/>
-<label x="-15.24" y="-15.24" size="1.778" layer="95"/>
+<wire x1="-17.78" y1="-17.78" x2="-17.78" y2="-20.32" width="0.1524" layer="91"/>
+<wire x1="-17.78" y1="-20.32" x2="-15.24" y2="-20.32" width="0.1524" layer="91"/>
+<label x="-15.24" y="-20.32" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="LED4" gate="G$1" pin="C"/>
+<wire x1="-58.42" y1="35.56" x2="-55.88" y2="35.56" width="0.1524" layer="91"/>
+<label x="-58.42" y="33.02" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="5V" class="0">
@@ -10108,13 +10117,13 @@ We've spent an enormous amount of time creating and checking these footprints an
 </segment>
 <segment>
 <pinref part="R6" gate="G$1" pin="1"/>
-<wire x1="-35.56" y1="0" x2="-33.02" y2="0" width="0.1524" layer="91"/>
-<label x="-35.56" y="0" size="1.778" layer="95"/>
+<wire x1="-35.56" y1="-5.08" x2="-33.02" y2="-5.08" width="0.1524" layer="91"/>
+<label x="-35.56" y="-5.08" size="1.778" layer="95"/>
 </segment>
 <segment>
 <pinref part="R5" gate="G$1" pin="1"/>
-<wire x1="-50.8" y1="0" x2="-48.26" y2="0" width="0.1524" layer="91"/>
-<label x="-50.8" y="0" size="1.778" layer="95"/>
+<wire x1="-50.8" y1="-5.08" x2="-48.26" y2="-5.08" width="0.1524" layer="91"/>
+<label x="-50.8" y="-5.08" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="1V8" class="0">
@@ -10314,20 +10323,6 @@ We've spent an enormous amount of time creating and checking these footprints an
 <label x="-25.4" y="55.88" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="PTT_INPUT" class="0">
-<segment>
-<pinref part="GPIO" gate="A" pin="16"/>
-<wire x1="25.4" y1="38.1" x2="27.94" y2="38.1" width="0.1524" layer="91"/>
-<label x="30.48" y="38.1" size="1.778" layer="95"/>
-</segment>
-<segment>
-<pinref part="R4" gate="G$1" pin="1"/>
-<pinref part="PUSH_BUTTON" gate="J" pin="1"/>
-<wire x1="-25.4" y1="17.78" x2="-25.4" y2="12.7" width="0.1524" layer="91"/>
-<wire x1="-25.4" y1="12.7" x2="-22.86" y2="12.7" width="0.1524" layer="91"/>
-<label x="-22.86" y="12.7" size="1.778" layer="95"/>
-</segment>
-</net>
 <net name="N$7" class="0">
 <segment>
 <pinref part="R3" gate="G$1" pin="1"/>
@@ -10343,11 +10338,11 @@ We've spent an enormous amount of time creating and checking these footprints an
 </segment>
 <segment>
 <pinref part="SW1" gate="G$1" pin="4"/>
-<wire x1="-33.02" y1="-15.24" x2="-50.8" y2="-15.24" width="0.1524" layer="91"/>
+<wire x1="-33.02" y1="-20.32" x2="-50.8" y2="-20.32" width="0.1524" layer="91"/>
 <pinref part="R5" gate="G$1" pin="2"/>
-<wire x1="-50.8" y1="-15.24" x2="-50.8" y2="-10.16" width="0.1524" layer="91"/>
-<wire x1="-50.8" y1="-15.24" x2="-58.42" y2="-15.24" width="0.1524" layer="91"/>
-<label x="-58.42" y="-15.24" size="1.778" layer="95" rot="R90"/>
+<wire x1="-50.8" y1="-20.32" x2="-50.8" y2="-15.24" width="0.1524" layer="91"/>
+<wire x1="-50.8" y1="-20.32" x2="-58.42" y2="-20.32" width="0.1524" layer="91"/>
+<label x="-58.42" y="-20.32" size="1.778" layer="95" rot="R90"/>
 </segment>
 </net>
 <net name="ENCRY_CONFIG1" class="0">
@@ -10358,11 +10353,11 @@ We've spent an enormous amount of time creating and checking these footprints an
 </segment>
 <segment>
 <pinref part="SW1" gate="G$1" pin="3"/>
-<wire x1="-33.02" y1="-12.7" x2="-35.56" y2="-12.7" width="0.1524" layer="91"/>
+<wire x1="-33.02" y1="-17.78" x2="-35.56" y2="-17.78" width="0.1524" layer="91"/>
 <pinref part="R6" gate="G$1" pin="2"/>
-<wire x1="-35.56" y1="-12.7" x2="-35.56" y2="-10.16" width="0.1524" layer="91"/>
-<wire x1="-35.56" y1="-12.7" x2="-43.18" y2="-12.7" width="0.1524" layer="91"/>
-<label x="-43.18" y="-12.7" size="1.778" layer="95" rot="R90"/>
+<wire x1="-35.56" y1="-17.78" x2="-35.56" y2="-15.24" width="0.1524" layer="91"/>
+<wire x1="-35.56" y1="-17.78" x2="-43.18" y2="-17.78" width="0.1524" layer="91"/>
+<label x="-43.18" y="-17.78" size="1.778" layer="95" rot="R90"/>
 </segment>
 </net>
 <net name="OFF_BUTTON" class="0">
@@ -10377,6 +10372,32 @@ We've spent an enormous amount of time creating and checking these footprints an
 <pinref part="GPIO" gate="A" pin="13"/>
 <wire x1="17.78" y1="40.64" x2="15.24" y2="40.64" width="0.1524" layer="91"/>
 <label x="-10.16" y="40.64" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="R7" gate="G$1" pin="2"/>
+<wire x1="-58.42" y1="55.88" x2="-55.88" y2="55.88" width="0.1524" layer="91"/>
+<label x="-58.42" y="55.88" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="PTT_BUTTON" class="0">
+<segment>
+<pinref part="GPIO" gate="A" pin="16"/>
+<wire x1="25.4" y1="38.1" x2="27.94" y2="38.1" width="0.1524" layer="91"/>
+<label x="30.48" y="38.1" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="R4" gate="G$1" pin="1"/>
+<pinref part="PB1" gate="J" pin="1"/>
+<wire x1="-25.4" y1="17.78" x2="-25.4" y2="12.7" width="0.1524" layer="91"/>
+<wire x1="-25.4" y1="12.7" x2="-22.86" y2="12.7" width="0.1524" layer="91"/>
+<label x="-22.86" y="12.7" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="N$6" class="0">
+<segment>
+<pinref part="R7" gate="G$1" pin="1"/>
+<pinref part="LED4" gate="G$1" pin="A"/>
+<wire x1="-58.42" y1="45.72" x2="-58.42" y2="43.18" width="0.1524" layer="91"/>
 </segment>
 </net>
 </nets>

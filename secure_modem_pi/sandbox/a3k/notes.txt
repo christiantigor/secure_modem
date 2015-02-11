@@ -1,5 +1,5 @@
 record audio:
-arecord -D plughw:1,0 -t raw test.raw
+arecord -D plughw:1,0 -d 2 -t raw test.raw
 
 play audio:
 aplay -D plughw:1,0 test.raw
