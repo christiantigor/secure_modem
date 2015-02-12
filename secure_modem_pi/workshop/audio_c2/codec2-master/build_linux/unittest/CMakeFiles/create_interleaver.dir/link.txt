@@ -1,0 +1,1 @@
+/usr/bin/gcc   -fPIC -Wall -g    CMakeFiles/create_interleaver.dir/create_interleaver.c.o  -o create_interleaver -rdynamic ../src/libcodec2.so.0.3 -lm -lspeexdsp -Wl,-rpath,/home/pi/dev/secure_modem/workshop/audio_c2/codec2-master/build_linux/src 

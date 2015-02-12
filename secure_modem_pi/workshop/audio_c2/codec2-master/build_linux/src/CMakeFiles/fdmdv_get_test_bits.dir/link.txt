@@ -1,0 +1,1 @@
+/usr/bin/gcc   -fPIC -Wall -g    CMakeFiles/fdmdv_get_test_bits.dir/fdmdv_get_test_bits.c.o CMakeFiles/fdmdv_get_test_bits.dir/fdmdv.c.o CMakeFiles/fdmdv_get_test_bits.dir/kiss_fft.c.o  -o fdmdv_get_test_bits -rdynamic -lm -lspeexdsp 

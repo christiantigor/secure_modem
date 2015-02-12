@@ -1,0 +1,10 @@
+FILE(REMOVE_RECURSE
+  "CMakeFiles/c2dec.dir/c2dec.c.o"
+  "c2dec.pdb"
+  "c2dec"
+)
+
+# Per-language clean rules from dependency scanning.
+FOREACH(lang C)
+  INCLUDE(CMakeFiles/c2dec.dir/cmake_clean_${lang}.cmake OPTIONAL)
+ENDFOREACH(lang)

@@ -1,0 +1,32 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../unittest/../src/codec2_fifo.h
+
+/home/pi/dev/secure_modem/workshop/audio_c2/codec2-master/src/codec2_fifo.h
+
+/home/pi/dev/secure_modem/workshop/audio_c2/codec2-master/src/fifo.c
+assert.h
+-
+stdlib.h
+-
+stdio.h
+-
+codec2_fifo.h
+/home/pi/dev/secure_modem/workshop/audio_c2/codec2-master/src/codec2_fifo.h
+
+/home/pi/dev/secure_modem/workshop/audio_c2/codec2-master/unittest/tfifo.c
+assert.h
+-
+stdio.h
+-
+pthread.h
+-
+codec2_fifo.h
+/home/pi/dev/secure_modem/workshop/audio_c2/codec2-master/unittest/codec2_fifo.h
+

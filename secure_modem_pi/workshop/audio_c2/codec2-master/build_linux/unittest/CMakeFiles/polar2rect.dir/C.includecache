@@ -1,0 +1,18 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/pi/dev/secure_modem/workshop/audio_c2/codec2-master/unittest/polar2rect.c
+assert.h
+-
+math.h
+-
+stdlib.h
+-
+stdio.h
+-
+

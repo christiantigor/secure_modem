@@ -1,0 +1,18 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/pi/dev/secure_modem/workshop/audio_c2/codec2-master/src/generate_codebook.c
+stdlib.h
+-
+stdio.h
+-
+ctype.h
+-
+math.h
+-
+

@@ -1,0 +1,1 @@
+/usr/bin/gcc   -fPIC -Wall -g    CMakeFiles/fdmdv_mod.dir/fdmdv_mod.c.o CMakeFiles/fdmdv_mod.dir/fdmdv.c.o CMakeFiles/fdmdv_mod.dir/kiss_fft.c.o  -o fdmdv_mod -rdynamic -lm -lspeexdsp 

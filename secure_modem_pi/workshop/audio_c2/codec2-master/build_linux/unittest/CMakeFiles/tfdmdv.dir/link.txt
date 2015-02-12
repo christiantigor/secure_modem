@@ -1,0 +1,1 @@
+/usr/bin/gcc   -fPIC -Wall -g    CMakeFiles/tfdmdv.dir/tfdmdv.c.o CMakeFiles/tfdmdv.dir/__/src/fdmdv.c.o CMakeFiles/tfdmdv.dir/__/src/kiss_fft.c.o CMakeFiles/tfdmdv.dir/__/src/octave.c.o  -o tfdmdv -rdynamic ../src/libcodec2.so.0.3 -lm -lspeexdsp -Wl,-rpath,/home/pi/dev/secure_modem/workshop/audio_c2/codec2-master/build_linux/src 

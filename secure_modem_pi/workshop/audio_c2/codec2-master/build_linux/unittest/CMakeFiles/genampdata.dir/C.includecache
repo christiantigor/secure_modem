@@ -1,0 +1,26 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/pi/dev/secure_modem/workshop/audio_c2/codec2-master/unittest/../src/defines.h
+
+/home/pi/dev/secure_modem/workshop/audio_c2/codec2-master/unittest/genampdata.c
+stdio.h
+-
+stdlib.h
+-
+string.h
+-
+math.h
+-
+ctype.h
+-
+assert.h
+-
+../src/defines.h
+/home/pi/dev/secure_modem/workshop/audio_c2/codec2-master/unittest/../src/defines.h
+

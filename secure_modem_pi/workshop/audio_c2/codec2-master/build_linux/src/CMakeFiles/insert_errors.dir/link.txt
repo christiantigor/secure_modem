@@ -1,0 +1,1 @@
+/usr/bin/gcc   -fPIC -Wall -g    CMakeFiles/insert_errors.dir/insert_errors.c.o  -o insert_errors -rdynamic -lm -lspeexdsp 

@@ -1,0 +1,1 @@
+/usr/bin/gcc   -fPIC -Wall -g    CMakeFiles/fdmdv_mem.dir/fdmdv_mem.c.o  -o fdmdv_mem -rdynamic 

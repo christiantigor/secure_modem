@@ -1,0 +1,1 @@
+/usr/bin/gcc   -fPIC -Wall -g    CMakeFiles/speexnoisesup.dir/speexnoisesup.c.o  -o speexnoisesup -rdynamic -lspeexdsp 

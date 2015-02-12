@@ -1,0 +1,102 @@
+Codec 2 README
+--------------
+
+Codec 2 is an open source (LGPL licensed) speech codec for 2400 bit/s
+and below.  For more information please see:
+
+    http://rowetel.com/codec2.html
+
+Also included is a FDMDV modem (README_fdmdv.txt), and an API for
+embedding FreeDV in other programs (see example below).  For more
+information on building Codec 2 see READE.cmake
+
+Quickstart
+----------
+
+NOTE: Use the "codec2" or "codec2-dev" depending on which repository
+      you are working with
+
+1/ Listen to Codec 2:
+   $ cd codec2
+   $ mkdir build_linux
+   $ cmake ..
+   $ make
+   $ ./src/c2demo ../raw/hts1a.raw hts1a_c2.raw
+   $ play ../raw/hts1a.raw hts1a_c2.raw
+
+2/ Compress and Decompress a file:
+
+   $ ./src/c2enc 2400 ../raw/hts1a.raw hts1a_c2.bit
+   $ ./src/c2dec 2400 hts1a_c2.bit hts1a_c2.raw 
+
+3/ Same thing with pipes:
+
+   $ ./src/c2enc 1400 ../raw/hts1a.raw - | ./src/c2dec 1400 - - | play -t raw -r 8000 -s -2 -
+
+Embedded FreeDV API
+-------------------
+
+See freedv_api.h and freedv_api.c, and the demo programs freedv_tx &
+freedv_rx.  Quickstart:
+
+  $ ./freedv_tx ../../raw/hts1.raw - | ./freedv_rx - - | play -t raw -r 8000 -s -2 -q -
+
+Or with a simulated 2 dB SNR channel:
+
+  $ ./freedv_tx ../../raw/hts1.raw - | ./fdmdv_channel - - 2 | ./freedv_rx - - | play -t raw -r 8000 -s -2 -q -
+
+To log the demod state information and received text msg characters to a text file:
+
+  $ ./freedv_tx ../../raw/hts1.raw - | ./fdmdv_channel - - 2 | ./freedv_rx - - log.txt | play -t raw -r 8000 -s -2 -q -
+  $ cat log.txt
+
+Programs
+--------
+ 
+1/ c2demo encodes a file of speech samples, then decodes them and
+saves the result.
+
+2/ c2enc encodes a file of speech samples to a compressed file of
+encoded bits.
+
+3/ c2dec decodes a compressed file of bits to a file of speech
+samples.
+
+4/ c2sim is a simulation/development version of Codec 2.  It allows
+selective use of the various Codec 2 algorithms.  For example
+switching phase modelling or LSP quantisation on and off.
+
+Debugging
+---------
+
+1/ To compile with debug symbols for using gdb:
+
+  $ cd ~/codec2
+  $ rm -Rf build_linux && mkdir build_linux
+  $ cd build_linux
+  $ CFLAGS=-g cmake ..
+  $ make
+
+2/ For dump file support:
+
+  $ cd ~/codec2
+  $ rm -Rf build_linux && mkdir build_linux
+  $ CFLAGS=-DDUMP cmake ..
+  $ cd build_linux
+  $ make
+
+Directories
+-----------
+
+  asterisk &  - unmaintained Asterisk support
+  asterisk-11 
+  cmake       - cmake support files
+  octave      - Octave scripts used for visualising internal signals 
+                during development
+  script      - shell scripts for playing and converting raw files
+  src         - C source code for Codec 2, FDMDV modem, FreeDV API
+  raw         - speech files in raw format (16 bits signed linear 8 kHz)
+  stm32       - Support for the STM32F4 microcontroller and SM1000 FreeDV speaker-mic
+  unittest    - unit test source code
+  wav         - speech files in wave file format
+

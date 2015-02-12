@@ -1,0 +1,1 @@
+/usr/bin/gcc   -fPIC -Wall -g    CMakeFiles/genlspdtcb.dir/genlspdtcb.c.o  -o genlspdtcb -rdynamic -lm -lspeexdsp 

@@ -1,0 +1,36 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/pi/dev/secure_modem/workshop/audio_c2/codec2-master/src/codec2_fdmdv.h
+comp.h
+/home/pi/dev/secure_modem/workshop/audio_c2/codec2-master/src/comp.h
+
+/home/pi/dev/secure_modem/workshop/audio_c2/codec2-master/src/comp.h
+
+/home/pi/dev/secure_modem/workshop/audio_c2/codec2-master/src/freedv_api.h
+varicode.h
+/home/pi/dev/secure_modem/workshop/audio_c2/codec2-master/src/varicode.h
+codec2_fdmdv.h
+/home/pi/dev/secure_modem/workshop/audio_c2/codec2-master/src/codec2_fdmdv.h
+
+/home/pi/dev/secure_modem/workshop/audio_c2/codec2-master/src/freedv_tx.c
+assert.h
+-
+stdlib.h
+-
+stdio.h
+-
+string.h
+-
+errno.h
+-
+freedv_api.h
+/home/pi/dev/secure_modem/workshop/audio_c2/codec2-master/src/freedv_api.h
+
+/home/pi/dev/secure_modem/workshop/audio_c2/codec2-master/src/varicode.h
+

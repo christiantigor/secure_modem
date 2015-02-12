@@ -1,0 +1,30 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../unittest/../src/codec2.h
+
+/home/pi/dev/secure_modem/workshop/audio_c2/codec2-master/unittest/c2validate.c
+codec2.h
+/home/pi/dev/secure_modem/workshop/audio_c2/codec2-master/unittest/codec2.h
+hts1a.h
+/home/pi/dev/secure_modem/workshop/audio_c2/codec2-master/unittest/hts1a.h
+hts1a_1300.h
+/home/pi/dev/secure_modem/workshop/audio_c2/codec2-master/unittest/hts1a_1300.h
+stdio.h
+-
+stdlib.h
+-
+string.h
+-
+gdb_stdio.h
+/home/pi/dev/secure_modem/workshop/audio_c2/codec2-master/unittest/gdb_stdio.h
+
+/home/pi/dev/secure_modem/workshop/audio_c2/codec2-master/unittest/hts1a.h
+
+/home/pi/dev/secure_modem/workshop/audio_c2/codec2-master/unittest/hts1a_1300.h
+

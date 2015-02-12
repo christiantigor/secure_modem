@@ -1,0 +1,1 @@
+/usr/bin/gcc   -fPIC -Wall -g    CMakeFiles/fdmdv_interleave.dir/fdmdv_interleave.c.o  -o fdmdv_interleave -rdynamic -lm -lspeexdsp 
