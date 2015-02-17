@@ -1,0 +1,23 @@
+Partlist exported from C:/Users/tritronik/Documents/GitHub/secure_modem/Board/board_io/board_io_v2/board_io_v2.sch at 16/02/2015 13:29:51
+
+Qty Value               Device              Package        Parts                                 Description                                                             
+1                       10-XX               B3F-10XX       S1                                    OMRON SWITCH                                                            
+1                       DCBARRELPTH         DCJACK_2MM_PTH CN1                                   2.0mm DC Barrel Jack                                                    
+1                       FERRITE-0603        FB603          L1                                    Ferrite bead in various packages                                        
+4                       LEDCHIP-LED0805     CHIP-LED0805   LED1, LED2, LED3, LED4                LED                                                                     
+2                       PINHD-1X10          1X10           VOCODER_IO_PORT, VOCODER_SETTING_PORT PIN HEADER                                                              
+1                       PINHD-1X4           1X04           FTDI_TEST_POINT                       PIN HEADER                                                              
+1                       PINHD-2X20          2X20           GPIO                                  PIN HEADER                                                              
+2                       PINHD-2X4           2X04           RPI_USB_1, RPI_USB_2                  PIN HEADER                                                              
+2                       PN87520             PN87520        SOUND_CARD_1, SOUND_CARD_2            BERG USB connector                                                      
+1                       SW_DIP-2            DIPSWITCH-02   SW1                                   DIP SWITCH                                                              
+2   C100nF              C-EUC0805           C0805          C7, C9                                CAPACITOR, European symbol                                              
+5   C10uF               C-EUC0805           C0805          C2, C3, C4, C5, C6                    CAPACITOR, European symbol                                              
+1   C1uF                C-EUC0805           C0805          C1                                    CAPACITOR, European symbol                                              
+1   C4.7uF              C-POLAR-C           AVX-C          C8                                                                                                            
+2   CON_HEADER_1X02-PTH CON_HEADER_1X02-PTH M1X2           PB1, PB2                                                                                                      
+1   FT232RL             FT232RL             SSOP28         IC3                                   Source: http://www.ftdichip.com/Documents/DataSheets/DS_FT232R_v104.pdf 
+1   LD117AS18TR         LD117AS18TR         SOT223         IC2                                   Low drop fixed and adjustable positive voltage regulators 1 A           
+1   LD117AS33TR         LD117AS33TR         SOT223         IC1                                   Low drop fixed and adjustable positive voltage regulators 1 A           
+4   R10K                R-EU_R0805          R0805          R4, R5, R6, R8                        RESISTOR, European symbol                                               
+4   R1K                 R-EU_R0805          R0805          R1, R2, R3, R7                        RESISTOR, European symbol                                               

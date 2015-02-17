@@ -1,5 +1,5 @@
 #create reliable transmission
-#include fec before modulation
+#add fec before modulation
 
 import subprocess
 
