@@ -10,6 +10,8 @@ try:
     isNewData = None
     while True:
         s = raw_input()
+        #append new line char
+        s += '\n'
         #check if data
         if re.search(padSt,s):
             isData = True
@@ -41,25 +43,20 @@ try:
                 print len(chunks)
 
                 #unfec reedsolo
-#                nsym = 100 #can correct up to nsym/2 error
-#                rs = reedsolo.RSCodec(nsym)
-#                unfecs = []
-#                for chunk in chunks:
-#                    c = bytearray(chunk.decode('hex'))
-#                    print len(c)
-#                    if len(c) <= 250: #just to check if my hypotheses is right
-#                        c = c.ljust(250,'0')
-#                        try:
-#                            unfec = rs.decode(c) #still error
-#                        except:
-#                            print 'error'
-#                        unfecs.append(unfec)
+                nsym = 100 #can correct up to nsym/2 error
+                rs = reedsolo.RSCodec(nsym)
+                unfecs = []
+                for chunk in chunks:
+                    c = bytearray(chunk.decode('hex'))
+                    #print len(c)
+                    unfec = rs.decode(c) #still no handling when it's error
+                    unfecs.append(unfec)
 
                 #write unfec file
-#                fUnfec = open('rec_manual_unfec.bit','wb')
-#                for unfec in unfecs:
-#                    fUnfec.write(unfec)
-#                fUnfec.close()
+                fUnfec = open('rec_manual_unfec.bit','wb')
+                for unfec in unfecs:
+                    fUnfec.write(unfec)
+                fUnfec.close()
 
                 print 'new data'
                 isNewData = False
