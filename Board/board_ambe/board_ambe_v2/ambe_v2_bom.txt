@@ -1,0 +1,16 @@
+Partlist exported from C:/Users/tritronik/Documents/GitHub/secure_modem/Board/board_ambe/board_ambe_v2/ambe_v2.sch at 18/02/2015 12:03:40
+
+Qty Value             Device            Package      Parts                             Description                          
+3                     PINHD-1X10        1X10         CODEC_PORT, IO_PORT, MICRO_PORT_1 PIN HEADER                           
+1                     SW_DIP-8          DIPSWITCH-08 SW2                               DIP Switch 8 Position                
+1                     XTAL-4-3225       NX3225       Q1                                Classic 4-pin 3.2 x 2.5mm crystal    
+1   29.4912MHz        XTAL/S            QS           Q2                                CRYSTAL                              
+1   AMBE-3000LQFP-128 AMBE-3000LQFP-128 LQFP-128     IC3                                                                    
+8   C0.1uF 10V        C-EUC0805         C0805        C4, C5, C6, C7, C8, C9, C10, C11  CAPACITOR, European symbol           
+2   C10uF 16V         C-EUC0805         C0805        C1, C2                            CAPACITOR, European symbol           
+2   C10uF 16V         CPOL-EUE2-4       E2-4         C14, C15                          POLARIZED CAPACITOR, European symbol 
+1   C1uF 10V          C-EUC0805         C0805        C3                                CAPACITOR, European symbol           
+2   C22pF             C-EU025-024X044   C025-024X044 C12, C13                          CAPACITOR, European symbol           
+5   R10K              R-EU_R0805        R0805        R2, R11, R12, R13, R14            RESISTOR, European symbol            
+1   R24.9K            R-EU_0207/2V      0207/2V      R15                               RESISTOR, European symbol            
+1   R24.9K            R-EU_R0805        R0805        R1                                RESISTOR, European symbol            

@@ -21,4 +21,4 @@ if __name__ == '__main__':
                 pass
             time.sleep(0.1)
     except:
-        print '!!! buttoninput error  !!!'
+        print '!!! button_input error  !!!'

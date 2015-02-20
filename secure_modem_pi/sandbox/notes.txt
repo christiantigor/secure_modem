@@ -6,9 +6,21 @@ aplay -D plughw:1,0 test.raw
 aplay -D plughw:1,0 -f S16_LE hts1a.raw
 aplay -D plughw:1,0 -t raw rec_packet_raw.pcm
 
+17 Feb 2014
 *** record low noise  ***
 open 'alsamixer'
 set mic value to 50
 set capture value to 100 (enter capture by pressing F5)
 run 'arecord -D plughw:1,0 -f S16_LE -t raw filename.raw'
     'aplay -D plughw:1,0 -f S16_LE filename.raw'
+
+15 Feb 2015
+Identify two identical audio devices (http://alsa.opensrc.org/Udev)
+Example:
+aplay -D plughw:RADIO -t raw rec_packet_raw.pcm
+aplay -D plughw:USER -t raw rec_packet_raw.pcm
+
+How to listen for checking if data is voice: (piping)
+listen: arecord -D plughw:USER -f S16_LE -t raw | ./fdmdv_demod - - | python test_piping.py
+play: aplay -D plughw:USER -f S16_LE modulation.raw (reedsolo)
+

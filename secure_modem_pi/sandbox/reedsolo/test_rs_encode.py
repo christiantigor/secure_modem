@@ -42,9 +42,18 @@ for chunk in chunks:
 
 #combine file
 fFec = open('manual_fec.bit','wb')
+#add zero padding at front
+padSize = 255
+padSt = padSize * 'a'
+padEn = padSize * 'z'
+fFec.write(padSt)
+#write data
 for fec in fecs:
     fFec.write(fec)
+#add zero padding at back
+fFec.write(padEn)
 fFec.close()
 
 #modulate (just for testing)
 #./fdmdv_mod manual_fec.bit modulation.raw
+#aplay -D plughw:USER -f S16_LE modulation.raw

@@ -8,8 +8,7 @@ import re
 #open file
 #f = open('manual_fec.bit','rb') #should open file result of demodulation
 #f = open('modulation_demod.bit','rb') #without transmission
-#f = open('rec_modulation_demod.bit','rb')
-f = open('rec_modulation_demod_dummy.bit','rb') #part of rec_modulation_demod
+f = open('rec_modulation_demod.bit','rb')
 fDemod = f.read()
 f.close()
 
@@ -31,6 +30,7 @@ rs = reedsolo.RSCodec(nsym)
 unfecs = []
 for chunk in chunks:
     c = bytearray(chunk.decode('hex'))
+    print len(c)
     unfec = rs.decode(c)
     unfecs.append(unfec)
 
