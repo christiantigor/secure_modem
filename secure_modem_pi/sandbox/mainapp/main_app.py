@@ -1,3 +1,4 @@
+import a3k
 import os
 import re
 import reedsolo
@@ -31,6 +32,9 @@ def main():
     prevInSw1 = None
     prevInSw2 = None
 
+    fileRaw = 'man_rec.raw'
+    fileEncod = 'man_encod.bit'
+
     #turn LED_ON_OFF on
     GPIO.output(LED_ON_OFF, True)
 
@@ -45,7 +49,7 @@ def main():
             prevInPtt = False
 
             #record voice
-            cmdRec = 'arecord -D plughw:USER -t raw man_rec.raw'
+            cmdRec = 'arecord -D plughw:USER -t raw ' + fileRaw
             procRec = subprocess.Popen(
                 cmdRec,
                 stdout = subprocess.PIPE,
@@ -55,6 +59,20 @@ def main():
             while(not GPIO.input(BUTTON_PTT)):
                 pass
             os.killpg(procRec.pid, signal.SIGTERM)
+            GPIO.output(LED_PTT, False)
+
+            #encode voice
+            a3k.encode(fileRaw,fileEncod)
+
+            #encrpyt voice
+            inSw1 = GPIO.input(SW_1)
+            if(not inSw1):
+                print 'encrypted'
+                
+            else:
+                print 'not encrypted'
+
+            #modulate voice
             
         elif(inPtt and (not prevInPtt)):
             #print 'ptt is released - listen to voice'
@@ -64,9 +82,11 @@ def main():
             pass
         time.sleep(0.1)
             #record voice
+                #encode voice
                 #check to use encryption
                 #transmit voice
             #listen to voice
+                #decode voice
                 #check if use encryption
                 #play voice
 
