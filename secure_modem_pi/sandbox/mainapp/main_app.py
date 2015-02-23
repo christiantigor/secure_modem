@@ -1,11 +1,14 @@
 import a3k
+import kripto
 import os
 import re
 import reedsolo
 import RPi.GPIO as GPIO
 import signal
 import subprocess
-import time    
+import transmit
+import time
+    
 
 def main():
     ###init io###
@@ -34,6 +37,10 @@ def main():
 
     fileRaw = 'man_rec.raw'
     fileEncod = 'man_encod.bit'
+    fileEncrypt = 'man_encrypt.bit'
+    fileMod = 'man_mod.raw'
+
+    key = 'mysecretpassword'
 
     #turn LED_ON_OFF on
     GPIO.output(LED_ON_OFF, True)
@@ -67,12 +74,15 @@ def main():
             #encrpyt voice
             inSw1 = GPIO.input(SW_1)
             if(not inSw1):
-                print 'encrypted'
-                
+                #print 'encrypted'
+                kripto.aesEncrypt(fileEncod,fileEncrypt,key)
+                fileSrcMod = fileEncrypt
             else:
                 print 'not encrypted'
+                fileSrcMod = fileEncod
 
             #modulate voice
+            transmit.modulate(fileSrcMod,fileMod)
             
         elif(inPtt and (not prevInPtt)):
             #print 'ptt is released - listen to voice'
