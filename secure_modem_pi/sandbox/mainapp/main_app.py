@@ -8,7 +8,6 @@ import signal
 import subprocess
 import transmit
 import time
-    
 
 def main():
     ###init io###
@@ -25,6 +24,7 @@ def main():
     GPIO.setup(SW_2, GPIO.IN)
     #output
     LED_PTT = 18
+    global LED_ON_OFF
     LED_ON_OFF = 27
     GPIO.setup(LED_PTT, GPIO.OUT)
     GPIO.setup(LED_ON_OFF, GPIO.OUT)
@@ -91,14 +91,6 @@ def main():
         else:
             pass
         time.sleep(0.1)
-            #record voice
-                #encode voice
-                #check to use encryption
-                #transmit voice
-            #listen to voice
-                #decode voice
-                #check if use encryption
-                #play voice
 
         #check BUTTON_OFF
         inOff = GPIO.input(BUTTON_OFF)
@@ -115,4 +107,7 @@ def main():
         time.sleep(0.1)
 
 if __name__ == '__main__':
-    main()
+    try:
+        main()
+    except:
+        GPIO.output(LED_ON_OFF, False)
