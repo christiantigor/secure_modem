@@ -1,4 +1,5 @@
 #software for modulation and demodulation
+import re
 import reedsolo
 import subprocess
 import sys
@@ -82,4 +83,45 @@ def modulate(fileSrcMod,fileMod):
         print '[DBG]finish fdmdv modulation'
     except:
         print 'fdmdv modulate error'
+        sys.exit(1)
+
+def unfec(fileDemod,chunkSize):
+    try:
+        print '[DBG]start unfec'
+
+        #open file
+        f = open(fileDemod,'rb')
+        fDemod = f.read()
+        f.close()
+
+        #encode file to hex
+        h = fDemod.encode('hex')
+        pattern = re.compile(r'(?<=5354)(\S*?)(?=454e)') #ST=5354 and EN=454e
+        chunks = re.findall(pattern,h)
+        #print chunks
+        print len(chunks)
+
+        #unfec reedsolo
+        nsym = 100 #can correct ip to nsym/2 error
+        rs = reedsolo.RSCodec(nsym)
+        unfecs = []
+        for chunk in chunks:
+            c = bytearray(chunk.decode('hex'))
+            if len(c) == chunkSize:
+                sys.stdout.write('.')
+                unfec = rs.decode(c) #handle error when len != chunkSize
+                unfecs.append(unfec)
+            else:
+                pass
+
+        #write unfec file
+        fUnfec = open(fileDemod,'wb')
+        for unfec in unfecs:
+            fUnfec.write(unfec)
+        fUnfec.close()
+
+        print ''
+        print '[DBG]finish unfec'
+    except:
+        print 'unfec error'
         sys.exit(1)

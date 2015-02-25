@@ -34,3 +34,28 @@ def aesEncrypt(fileEncod,fileEncrypt,key):
     except:
         print 'aes encrypt error'
         sys.exit(1)
+
+def aesDecrypt(fileDemod,fileDecrypt,key):
+    try:
+        print '[DBG]start aes decryption'
+
+        #open file
+        f = open(fileDemod,'rb')
+        fDemod = f.read()
+        f.close()
+
+        #check lenght of file (multiple of 16) ???
+
+        #decrypt file
+        decryptor = AES.new(key, AES.MODE_ECB)
+        decrypted = decryptor.decrypt(fDemod)
+
+        #srite to file
+        fDecrypt = open(fileDecrypt,'wb')
+        fDecrypt.write(decrypted)
+        fDecrypt.close()
+
+        print '[DBG]finish aes decryption'
+    except:
+        print 'aes decrypt error'
+        sys.exit(1)

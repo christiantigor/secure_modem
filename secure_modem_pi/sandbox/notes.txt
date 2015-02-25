@@ -21,6 +21,6 @@ aplay -D plughw:RADIO -t raw rec_packet_raw.pcm
 aplay -D plughw:USER -t raw rec_packet_raw.pcm
 
 How to listen for checking if data is voice: (piping)
-listen: arecord -D plughw:USER -f S16_LE -t raw | ./fdmdv_demod - - | python test_piping.py
-play: aplay -D plughw:USER -f S16_LE modulation.raw (reedsolo)
+listen: arecord -D plughw:RADIO -f S16_LE -t raw | ./fdmdv_demod - - | python test_piping.py
+play: aplay -D plughw:RADIO -f S16_LE modulation.raw (reedsolo)
 

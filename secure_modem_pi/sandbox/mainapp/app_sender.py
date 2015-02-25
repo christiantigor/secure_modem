@@ -1,3 +1,5 @@
+#software for recording, processing, and transmitting voice
+
 import a3k
 import kripto
 import os
@@ -6,6 +8,7 @@ import reedsolo
 import RPi.GPIO as GPIO
 import signal
 import subprocess
+import sys
 import transmit
 import time
 
@@ -35,17 +38,17 @@ def main():
     prevInSw1 = None
     prevInSw2 = None
 
-    fileRaw = 'man_rec.raw'
-    fileEncod = 'man_encod.bit'
-    fileEncrypt = 'man_encrypt.bit'
-    fileMod = 'man_mod.raw'
+    fileRaw = 'as_raw.raw'
+    fileEncod = 'as_encod.bit'
+    fileEncrypt = 'as_encrypt.bit'
+    fileMod = 'as_mod.raw'
 
     key = 'mysecretpassword'
 
     #turn LED_ON_OFF on
     GPIO.output(LED_ON_OFF, True)
 
-    print 'secure_modem start'
+    print 'app_sender start'
     
     while True:
         #check BUTTON_PTT
@@ -56,7 +59,7 @@ def main():
             prevInPtt = False
 
             #record voice
-            cmdRec = 'arecord -D plughw:USER -t raw ' + fileRaw
+            cmdRec = 'arecord -D plughw:USER -f S16_LE -t raw ' + fileRaw
             procRec = subprocess.Popen(
                 cmdRec,
                 stdout = subprocess.PIPE,
@@ -81,7 +84,7 @@ def main():
                 print 'not encrypted'
                 fileSrcMod = fileEncod
 
-            #modulate voice
+            #fec and modulate voice
             transmit.modulate(fileSrcMod,fileMod)
             
         elif(inPtt and (not prevInPtt)):
@@ -111,3 +114,5 @@ if __name__ == '__main__':
         main()
     except:
         GPIO.output(LED_ON_OFF, False)
+        print '!!! app_sender error !!!'
+        sys.exit(1)
