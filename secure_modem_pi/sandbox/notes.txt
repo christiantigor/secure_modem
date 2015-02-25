@@ -24,3 +24,14 @@ How to listen for checking if data is voice: (piping)
 listen: arecord -D plughw:RADIO -f S16_LE -t raw | ./fdmdv_demod - - | python test_piping.py
 play: aplay -D plughw:RADIO -f S16_LE modulation.raw (reedsolo)
 
+25 Feb 2015
+Test per module:
+test to make sure a3k working(???) - check if it return data w/ len multiple of 18
+a3k_encode(ok) - a3k_decode(ok)
+
+process chunk per 18 bytes as a3k_encode size(feasible)
+but not good for aes, it's input is 16 bytes input
+
+aes_encrypt(ok) - aes_decrypt(ok) handle 9 bytes a3k encoding
+rs_fec(ok) - rs_unfec(ok) handle 9 bytes a3k encoding
+fdmdv_mod(ok) - fdmdv_demod(ok)
