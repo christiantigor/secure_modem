@@ -1,4 +1,3 @@
-#o
 import a3k
 import os
 import RPi.GPIO as GPIO
@@ -8,7 +7,7 @@ import sys
 import time
 
 def main():
-    GPIO.setwarnigs(False)
+    #GPIO.setwarnigs(False)
     GPIO.setmode(GPIO.BCM)
     #input
     BUTTON_PTT = 23
@@ -53,10 +52,10 @@ def main():
             GPIO.output(LED_PTT, False)
          
             #encode voice
-#            a3k.encode(fileRaw,fileEncod)
+            a3k.encode(fileRaw,fileEncod)
         
             #decode voice
-#            a3k.decode(fileEncod,fileDecod)
+            a3k.decode(fileEncod,fileDecod)
         
             #play voice
             cmdPlay = 'aplay -D plughw:USER -f S16_LE ' + fileDecod
@@ -66,6 +65,7 @@ def main():
                 stderr = subprocess.PIPE,
                 shell = True
             )
+            print '[DBG]finish play voice'
         elif(inPtt and (not prevInPtt)):
             GPIO.output(LED_PTT, False)
             prevInPtt = True
@@ -77,6 +77,6 @@ if __name__ == '__main__':
     try:
         main()
     except:
-        #GPIO.output(LED_ON_OFF, False)
+        GPIO.output(LED_ON_OFF, False)
         print '!!! test_a3k error !!!'
         sys.exit(1)
