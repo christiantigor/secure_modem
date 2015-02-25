@@ -78,6 +78,7 @@ def encode(fileRaw,fileEncod):
             s += rspn.encode('hex')
 
         #print '[DBG]send speech packet'
+        ser.close()
 
         #remove response of opening packet
         pckOpRspn1 = '6100010401'

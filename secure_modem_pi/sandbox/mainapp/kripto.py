@@ -14,20 +14,39 @@ def aesEncrypt(fileEncod,fileEncrypt,key):
 
         #print '[DBG]open file'
 
-        #check length of file (multiple of 16)
-        size = 16
-        mod = len(fEncod)%size
-        fEncod = fEncod + ((size - mod) * '0')
+        #encode file to hex
+        h = fEncod.encode('hex')
+
+        #split file to chunk
+        whole = len(h)
+        chunkSize = 18 #a3k encoding size (9 byte)
+        chunks = []
+        for i in range(0,whole,chunkSize):
+            chunk = h[i:i+chunkSize]
+            if len(chunk) < chunkSize:
+                print 'should never happen'
+                #should never happen as file must be multiply of chunkSize
+            else:
+                pass
+            chunk = chunk.decode('hex')
+            chunks.append(chunk)
 
         #encrypt file
+        size = 16 #aes input must be multiple of 16
         encryptor = AES.new(key, AES.MODE_ECB)
-        encrypted = encryptor.encrypt(fEncod)
+        s = ''
+
+        for chunk in chunks:
+            mod = len(chunk)%size
+            chunk = chunk + ((size - mod) * '0')
+            encrypted = encryptor.encrypt(chunk)
+            s += encrypted
 
         #print '[DBG]encrypt file'
 
         #write to file
         fEncrypt = open(fileEncrypt,'wb')
-        fEncrypt.write(encrypted)
+        fEncrypt.write(s)
         fEncrypt.close()
 
         print '[DBG]finish aes encryption'
@@ -44,15 +63,36 @@ def aesDecrypt(fileDemod,fileDecrypt,key):
         fDemod = f.read()
         f.close()
 
-        #check lenght of file (multiple of 16) ???
+        #encode file to hex
+        h = fDemod.encode('hex')
+
+        #split file to chunk
+        whole = len(h)
+        chunkSize = 2*16 #a3k encoding size (9 byte) in 16 byte chunk
+        encodingSize = 18 #a3k encoding size (9 byte)
+        chunks = []
+        for i in range(0,whole,chunkSize):
+            chunk = h[i:i+chunkSize]
+            if len(chunk) < chunkSize:
+                print 'should never happen'
+            else:
+                pass
+            chunk = chunk.decode('hex')
+            chunks.append(chunk)
 
         #decrypt file
         decryptor = AES.new(key, AES.MODE_ECB)
-        decrypted = decryptor.decrypt(fDemod)
+        pad = (chunkSize-encodingSize)/2 #div 2 bcs already in ascii format
+        s = ''
 
-        #srite to file
+        for chunk in chunks:
+            decrypted = decryptor.decrypt(chunk)
+            decrypted = decrypted[:-pad]
+            s += decrypted
+
+        #write to file
         fDecrypt = open(fileDecrypt,'wb')
-        fDecrypt.write(decrypted)
+        fDecrypt.write(s)
         fDecrypt.close()
 
         print '[DBG]finish aes decryption'

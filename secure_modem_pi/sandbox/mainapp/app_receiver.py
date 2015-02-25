@@ -3,6 +3,7 @@
 #arecord -D plughw:RADIO -f S16_LE -t raw | ./fdmdv_demod - - | sudo python app_receiver.py
 
 import a3k
+import fec
 import kripto
 import re
 import RPi.GPIO as GPIO
@@ -27,14 +28,14 @@ def main():
     padSize = 5
     padSt = padSize * 'a' #start of whole data
     padEn = padSize * 'z' #end of whole data
-    chunkSize = 250 #150 bytes of data and 100 bytes of fec
+    chunkSize = 250 #150 bytes of data and 100 bytes of fec #NOT relevant anymore
     isData = None
     data = ''
     isNewData = None
 
-    fileDemod = 'ar_demod.bit'
-    fileDecrypt = 'ar_decrypt.bit'
-    fileDecod = 'ar_decod.raw'
+    fileDemod = 'arecv_demod.bit'
+    fileDecrypt = 'arecv_decrypt.bit'
+    fileDecod = 'arecv_decod.raw'
 
     key = 'mysecretpassword'
 
@@ -71,19 +72,26 @@ def main():
                     f.close()
 
                     #unfec voice
-                    transmit.unfec(fileDemod,chunkSize)
+                    fileSrcUnfec = fileDemod
+                    fec.unfec(fileSrcUnfec)
+
+                    #unfec file name
+                    idx = fileSrcUnfec.find('.bit')
+                    fileUnfec = fileSrcUnfec[:idx] + '_unfec' + fileSrcUnfec[idx:]
 
                     #decrypt voice
                     inSw2 = GPIO.input(SW_2)
                     if(not inSw2):
                         #print 'decrypted'
+                        fileDemod = fileUnfec #naming issue for ease of use
                         kripto.aesDecrypt(fileDemod,fileDecrypt,key)
                         fileSrcDecod = fileDecrypt
                     else:
                         print 'not decrypted'
-                        fileSrcDecod = fileDemod
+                        fileSrcDecod = fileUnfec
 
                     #decode voice
+                    print fileSrcDecod
                     a3k.decode(fileSrcDecod,fileDecod)
 
                     #play voice
@@ -91,7 +99,7 @@ def main():
                     procPlay = subprocess.Popen(
                         cmdPlay,
                         stdout = subprocess.PIPE,
-                        stdErr = subprocess.PIPE,
+                        stderr = subprocess.PIPE,
                         shell = True
                     )
                     

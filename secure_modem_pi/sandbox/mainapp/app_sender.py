@@ -1,6 +1,7 @@
 #software for recording, processing, and transmitting voice
 
 import a3k
+import fec
 import kripto
 import os
 import re
@@ -38,10 +39,10 @@ def main():
     prevInSw1 = None
     prevInSw2 = None
 
-    fileRaw = 'as_raw.raw'
-    fileEncod = 'as_encod.bit'
-    fileEncrypt = 'as_encrypt.bit'
-    fileMod = 'as_mod.raw'
+    fileRaw = 'asend_raw.raw'
+    fileEncod = 'asend_encod.bit'
+    fileEncrypt = 'asend_encrypt.bit'
+    fileMod = 'asend_mod.raw'
 
     key = 'mysecretpassword'
 
@@ -79,13 +80,20 @@ def main():
             if(not inSw1):
                 #print 'encrypted'
                 kripto.aesEncrypt(fileEncod,fileEncrypt,key)
-                fileSrcMod = fileEncrypt
+                fileSrcFec = fileEncrypt
             else:
                 print 'not encrypted'
-                fileSrcMod = fileEncod
+                fileSrcFec = fileEncod
 
-            #fec and modulate voice
-            transmit.modulate(fileSrcMod,fileMod)
+            #fec voice
+            fec.fec(fileSrcFec)
+
+            #fec file name
+            idx = fileSrcFec.find('.bit')
+            fileFec = fileSrcFec[:idx] + '_fec' + fileSrcFec[idx:]        
+
+            #modulate voice (after fec)
+            transmit.modulate(fileFec,fileMod)
             
         elif(inPtt and (not prevInPtt)):
             #print 'ptt is released - listen to voice'
