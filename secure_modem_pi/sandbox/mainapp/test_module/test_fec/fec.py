@@ -27,8 +27,10 @@ def fec(fileSrcFec):
         #fec reedsolo and add ST and EN flags
         nsym = 16 #can correct up to nsym/2 error
         rs = reedsolo.RSCodec(nsym)
-        flagSt = 'ST'
-        flagEn = 'EN'
+        #flagSt = 'ST'
+        flagSt = '$$$$$'
+        #flagEn = 'EN'
+        flagEn = '&&&&&'
         fecs = []
         for chunk in chunks:
             #fec reedsolo
@@ -73,10 +75,41 @@ def unfec(fileSrcUnfec):
         h = fSrcUnfec.encode('hex')
 
         #find chunk
-        pattern = re.compile(r'(?<=5354)(\S*?)(?=454e)') #ST=5354 and EN=454e
+        #pattern = re.compile(r'(?<=5354)(\S*?)(?=454e)') #ST=5354 and EN=454e
+        pattern = re.compile(r'(?<=2424)(\S*?)(?=2626)') #$$=2424 and &&=2626
         chunks = re.findall(pattern,h)
-        print len(chunks)
+        #print len(chunks)
+        #print chunks
 
+        #remove remaining flags
+        for i in range(0,len(chunks)):
+            chunk = chunks[i].decode('hex')
+
+            #start($) flags -> structure $$$$$, at best, last 3 need to be removed
+            #$$($$$)
+            if chunk[2] == '$':
+                chunk = chunk[3:] #rmv first 3 char
+            elif chunk[1] == '$':
+                chunk = chunk[2:]
+            elif chunk[0] == '$':
+                chunk = chunk[1:] 
+            else:
+                pass
+
+            #end(&) flags -> structure &&&&&, at best, none to be removed &&(&&&)
+            lastC = len(chunk) - 1
+            if(chunk[lastC-2] == '&'):
+                chunk = chunk[:-3] #rmv last 3 char
+            elif(chunk[lastC-1] == '&'):
+                chunk = chunk[:-2]
+            elif(chunk[lastC] == '&'):
+                chunk = chunk[:-1]
+            else:
+                pass
+            chunks[i] = chunk.encode('hex')
+
+        #print chunks
+        
         #unfec reedsolo
         chunkSize = 2*16
         nsym = 16 #can correct up to nsym/2 error

@@ -19,7 +19,7 @@ def aesEncrypt(fileEncod,fileEncrypt,key):
 
         #split file to chunk
         whole = len(h)
-        chunkSize = 18 #a3k encoding size
+        chunkSize = 18 #a3k encoding size (9 byte)
         chunks = []
         for i in range(0,whole,chunkSize):
             chunk = h[i:i+chunkSize]
@@ -68,8 +68,8 @@ def aesDecrypt(fileDemod,fileDecrypt,key):
 
         #split file to chunk
         whole = len(h)
-        chunkSize = 2*16 #a3k encoding size (18) in multiple of 16 byte chunk
-        encodingSize = 18 #a3k encoding size
+        chunkSize = 2*16 #a3k encoding size (9 byte) in 16 byte chunk
+        encodingSize = 18 #a3k encoding size (9 byte)
         chunks = []
         for i in range(0,whole,chunkSize):
             chunk = h[i:i+chunkSize]
@@ -82,7 +82,7 @@ def aesDecrypt(fileDemod,fileDecrypt,key):
 
         #decrypt file
         decryptor = AES.new(key, AES.MODE_ECB)
-        pad = (chunkSize-encodingSize)/2 #need to div with 2 bcs already in ascii format
+        pad = (chunkSize-encodingSize)/2 #div 2 bcs already in ascii format
         s = ''
 
         for chunk in chunks:
