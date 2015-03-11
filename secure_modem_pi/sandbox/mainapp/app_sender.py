@@ -42,6 +42,7 @@ def main():
     fileRaw = 'asend_raw.raw'
     fileEncod = 'asend_encod.bit'
     fileEncrypt = 'asend_encrypt.bit'
+    fileNoEncrypt = 'asend_no_encrypt.bit'
     fileMod = 'asend_mod.raw'
 
     key = 'mysecretpassword'
@@ -83,7 +84,8 @@ def main():
                 fileSrcFec = fileEncrypt
             else:
                 print 'not encrypted'
-                fileSrcFec = fileEncod
+                kripto.noEncrypt(fileEncod,fileNoEncrypt)
+                fileSrcFec = fileNoEncrypt
 
             #fec voice
             fec.fec(fileSrcFec)

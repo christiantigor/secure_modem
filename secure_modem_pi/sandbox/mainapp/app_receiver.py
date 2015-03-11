@@ -35,6 +35,7 @@ def main():
 
     fileDemod = 'arecv_demod.bit'
     fileDecrypt = 'arecv_decrypt.bit'
+    fileNoDecrypt = 'arecv_no_decrypt.bit'
     fileDecod = 'arecv_decod.raw'
 
     key = 'mysecretpassword'
@@ -83,15 +84,17 @@ def main():
                     inSw2 = GPIO.input(SW_2)
                     if(not inSw2):
                         #print 'decrypted'
-                        fileDemod = fileUnfec #naming issue for ease of use
-                        kripto.aesDecrypt(fileDemod,fileDecrypt,key)
+                        #fileDemod = fileUnfec
+                        #kripto.aesDecrypt(fileDemod,fileDecrypt,key)
+                        kripto.aesDecrypt(fileUnfec,fileDecrypt,key)
                         fileSrcDecod = fileDecrypt
                     else:
                         print 'not decrypted'
-                        fileSrcDecod = fileUnfec
+                        kripto.noDecrypt(fileUnfec,fileNoDecrypt)
+                        fileSrcDecod = fileNoDecrypt
 
                     #decode voice
-                    print fileSrcDecod
+                    #print fileSrcDecod
                     a3k.decode(fileSrcDecod,fileDecod)
 
                     #play voice

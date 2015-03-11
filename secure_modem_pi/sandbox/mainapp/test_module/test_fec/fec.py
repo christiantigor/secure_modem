@@ -1,6 +1,7 @@
 #software for fec and unfec
 import re
 import reedsolo
+import reedsolosource #edited rs code for unfec
 import sys
 
 def fec(fileSrcFec):
@@ -113,12 +114,13 @@ def unfec(fileSrcUnfec):
         #unfec reedsolo
         chunkSize = 2*16
         nsym = 16 #can correct up to nsym/2 error
-        rs = reedsolo.RSCodec(nsym)
+        #rs = reedsolo.RSCodec(nsym)
+        rs = reedsolosource.RSCodec(nsym) #use rs source code, not code from pip
         unfecs = []
         for chunk in chunks:
             c = bytearray(chunk.decode('hex'))
             if len(c) == chunkSize:
-                sys.stdout.write('.')
+                #sys.stdout.write('.')
                 unfec = rs.decode(c) #handle error when len != chunkSize
                 unfecs.append(unfec)
             else:
