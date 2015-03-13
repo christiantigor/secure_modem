@@ -114,7 +114,7 @@ def unfec(fileSrcUnfec):
         #unfec reedsolo
         chunkSize = 2*16
         nsym = 16 #can correct up to nsym/2 error
-        #rs = reedsolo.RSCodec(nsym)
+        #rs = reedsolo.RSCodec(nsym) #use rs code from pip
         rs = reedsolosource.RSCodec(nsym) #use rs source code, not code from pip
         unfecs = []
         for chunk in chunks:

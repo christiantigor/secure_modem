@@ -3,7 +3,8 @@ import sys
 
 def main():
     fileSrcFec = 'test_fec_encrypt.bit' #same file with test_kripto_encrypt.bit
-    fileFecError = 'test_fec_encrypt_fec_error.bit' #test for error occurence
+    fileSrcError = 'test_fec_encrypt_fec_error.bit' #test for error occurence
+                  #'test_fec_encrypt_fec.bit' is the correct file
 
     #fec
     fec.fec(fileSrcFec)
@@ -12,7 +13,7 @@ def main():
     idx = fileSrcFec.find('.bit')
     fileFec = fileSrcFec[:idx] + '_fec' + fileSrcFec[idx:]
 
-    #test for error file
+    #test using ERROR file
     fileFec = fileSrcError
 
     #unfec
